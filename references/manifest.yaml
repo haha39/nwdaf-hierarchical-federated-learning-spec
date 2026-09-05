@@ -1,0 +1,861 @@
+schema_version: 1
+status: PASS
+source_policy: authoritative-3gpp-only
+local_content_root: local-specs
+specifications:
+- spec: TS 23.288
+  release: '19'
+  version: 19.7.0
+  official_source_url: https://www.3gpp.org/ftp/Specs/archive/23_series/23.288/23288-j70.zip
+  version_registry_url: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3579
+  archive_filename: 23288-j70.zip
+  archive_sha256: b975de3dcca89b7a3938483774bfdde1121ac99f89e8c7c3130d8870ab9acfd3
+  retrieved_at: '2026-09-05T09:49:25Z'
+  conversion:
+    method: pandoc-gfm-clause-split
+    pandoc: pandoc 2.5
+    libreoffice: LibreOffice 6.4.7.2 40(Build:2)
+    normalized_legacy_doc: false
+    settings:
+      pandoc_from: docx
+      pandoc_to: gfm
+      wrap: none
+      media_extraction: docx-package-and-pandoc
+      split_policy: recognized-3gpp-clause-hierarchy
+      vector_preview_policy: optional-source-retained
+  validation: PASS
+  source_document: 23288-j70.docx
+  source_document_sha256: de396c6e896eea52306c8e9482bffa449ecfffa8aff76117da755e29e2f595b7
+- spec: TS 29.520
+  release: '19'
+  version: 19.7.0
+  official_source_url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.520/29520-j70.zip
+  version_registry_url: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3355
+  archive_filename: 29520-j70.zip
+  archive_sha256: a20ef6dba8310defa539fdf7750c5db12bcc5718b701e957629ec80bb8b76fbc
+  retrieved_at: '2026-09-05T09:58:38Z'
+  conversion:
+    method: pandoc-gfm-clause-split
+    pandoc: pandoc 2.5
+    libreoffice: LibreOffice 6.4.7.2 40(Build:2)
+    normalized_legacy_doc: false
+    settings:
+      pandoc_from: docx
+      pandoc_to: gfm
+      wrap: none
+      media_extraction: docx-package-and-pandoc
+      split_policy: recognized-3gpp-clause-hierarchy
+      vector_preview_policy: optional-source-retained
+  validation: PASS
+  source_document: 29520-j70.docx
+  source_document_sha256: ff84e32b7688cfa4120be58176b4e1e67bfc6cb5266d99b63a71d8544fb454d4
+- spec: TS 23.288
+  release: '20'
+  version: 20.1.0
+  official_source_url: https://www.3gpp.org/ftp/Specs/archive/23_series/23.288/23288-k10.zip
+  version_registry_url: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3579
+  archive_filename: 23288-k10.zip
+  archive_sha256: 86105504561de96763468638317cbd7efe0bf92b8b15d19bacf35f9a3e528889
+  retrieved_at: '2026-09-05T09:59:00Z'
+  conversion:
+    method: pandoc-gfm-clause-split
+    pandoc: pandoc 2.5
+    libreoffice: LibreOffice 6.4.7.2 40(Build:2)
+    normalized_legacy_doc: false
+    settings:
+      pandoc_from: docx
+      pandoc_to: gfm
+      wrap: none
+      media_extraction: docx-package-and-pandoc
+      split_policy: recognized-3gpp-clause-hierarchy
+      vector_preview_policy: optional-source-retained
+  validation: PASS
+  source_document: 23288-k10.docx
+  source_document_sha256: 44032d00f9b0af8b1a45bad811bbd3e8b6c691f199d58ca80992734a9fbdb663
+- spec: TS 29.520
+  release: '20'
+  version: 20.0.0
+  official_source_url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.520/29520-k00.zip
+  version_registry_url: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3355
+  archive_filename: 29520-k00.zip
+  archive_sha256: ae980b5a58d3ee88b4592985ef392998ec5fcb3e60a5909f11c1f8ba65b37fbf
+  retrieved_at: '2026-09-05T09:59:08Z'
+  conversion:
+    method: pandoc-gfm-clause-split
+    pandoc: pandoc 2.5
+    libreoffice: LibreOffice 6.4.7.2 40(Build:2)
+    normalized_legacy_doc: false
+    settings:
+      pandoc_from: docx
+      pandoc_to: gfm
+      wrap: none
+      media_extraction: docx-package-and-pandoc
+      split_policy: recognized-3gpp-clause-hierarchy
+      vector_preview_policy: optional-source-retained
+  validation: PASS
+  source_document: 29520-k00.docx
+  source_document_sha256: aa78f1cf5176d47f8e93314ffeba46e9f32207fc22dff91727178227a5aa63cb
+openapi:
+- release: '19'
+  forge_repository: https://forge.3gpp.org/rep/all/5G_APIs.git
+  branch: REL-19
+  commit: 9564c5f987d8d2e37721ac2bed9ea6383a29c185
+  retrieval_source: https://forge.3gpp.org/rep/all/5G_APIs
+  retrieved_at: '2026-09-05T10:03:38Z'
+  api_files:
+  - file: TS29520_Nnwdaf_AnalyticsInfo.yaml
+    sha256: b719d6bbe52070d6663c174789335977af05df9bb5876eadcdc5411c2c018fe9
+    info_version: 1.4.2
+  - file: TS29520_Nnwdaf_DataManagement.yaml
+    sha256: 28d729b9664d8a5236198297ae2d5a0fb47bcece7af676c364cf68a25b6465b3
+    info_version: 1.2.2
+  - file: TS29520_Nnwdaf_EventsSubscription.yaml
+    sha256: 79a471bfc057a2ee3ebe12bce79076c0d103c8a86831a9a4dd056b3e27619dc4
+    info_version: 1.4.2
+  - file: TS29520_Nnwdaf_MLModelMonitor.yaml
+    sha256: 58c0a97067d722407a40fd68b021c9cd3906bb5951044eb0ee91c52d11448c42
+    info_version: 1.1.1
+  - file: TS29520_Nnwdaf_MLModelProvision.yaml
+    sha256: 2c13ffb237006bb14b9c51250c069300ea6646d7a287ac88abe4acc238671ee7
+    info_version: 1.2.1
+  - file: TS29520_Nnwdaf_MLModelTraining.yaml
+    sha256: ec65f84fa4b98a7f19e2c703d8eebce7f470c524a6950294e4665054d3b42dfd
+    info_version: 1.1.1
+  - file: TS29520_Nnwdaf_RoamingAnalytics.yaml
+    sha256: 05fb152b7f726d7acafa2aa6be64db87cb6761a8f8bfe14e7d71b9fd5f9341f5
+    info_version: 1.1.2
+  - file: TS29520_Nnwdaf_RoamingData.yaml
+    sha256: 6e063308502f51cbcdafd2b8a0e4768c07d67d5bac4c2164d8b904a34a3de808
+    info_version: 1.1.2
+  - file: TS29520_Nnwdaf_VFLInference.yaml
+    sha256: 8337f5e2bc9f182fd827c1f6222f24fc7cdb4109517c05c8b56a235b242faf89
+    info_version: 1.0.2
+  - file: TS29520_Nnwdaf_VFLTraining.yaml
+    sha256: 27c1803e4d3780c6c283949facabe12e4f08b1b0ee1a2f5e4b02e1f2dda5081d
+    info_version: 1.0.2
+  dependency_files:
+  - file: TS26510_CommonData.yaml
+    sha256: 03491172b3979a4be32f99369c84e961b812d45bfdbe777b3d33cde37689f426
+    info_version: 1.1.1
+  - file: TS26512_CommonData.yaml
+    sha256: 40077fa2de6a112bc532126ac1e0871acb661dc88a9204d0d1e71a7f4ff081e0
+    info_version: 3.2.0
+  - file: TS26512_EventExposure.yaml
+    sha256: 3c59ce433295225d2dba9e8efd64a114ebb4d171b4e191bbeba57e5871a529fa
+    info_version: 1.2.0
+  - file: TS26512_M5_DynamicPolicies.yaml
+    sha256: 12da0e4f7c64b95966c86ed67561085c0cad61215d9bac06d67f82f474c88a68
+    info_version: 3.1.0
+  - file: TS26512_M5_NetworkAssistance.yaml
+    sha256: b7ad70df2a09160083cb3f308888d8141f6e61e3025e2e581ec360e2ec334d2d
+    info_version: 3.1.0
+  - file: TS26512_R2_DataReporting.yaml
+    sha256: cd19f4d3445a4dd2fbc223bce82aeadc2aa1f804c4957b0b61495b6c311bface
+    info_version: 1.1.0
+  - file: TS26512_R4_DataReporting.yaml
+    sha256: 085ccfc8974d2a13c01040ad624bb7a4d1698c268fc0e567684b4504264c34e6
+    info_version: 2.1.0
+  - file: TS26532_CommonData.yaml
+    sha256: 92c9c891238ed1a0dc3354753d7405669a231cecc4c3abc72305d208f249da50
+    info_version: 2.1.1
+  - file: TS26532_Ndcaf_DataReporting.yaml
+    sha256: f147807b71579c8af9770787905442351977b2ba1d01bb596ed105567057dac5
+    info_version: 2.2.0
+  - file: TS26532_Ndcaf_DataReportingProvisioning.yaml
+    sha256: 634499cda3463bdd4b47c2e6f65d11dc6fe6df0c21f2aea8b0d6e187c2187848
+    info_version: 2.0.1
+  - file: TS28104_MdaNrm.yaml
+    sha256: 3feb2910e5dc8be21b8d2b99c2cb1b8a50b15092450db1f847a5eae02c0c9e65
+    info_version: 19.3.0
+  - file: TS28104_MdaReport.yaml
+    sha256: a1b5ecd2afc0b18a019543052160a842f6bcfc4a91dbf6ca57576246e537b9d2
+    info_version: 19.3.0
+  - file: TS28105_AiMlNrm.yaml
+    sha256: 714b2d0bb1ac6c3dbcdaa9e362938c59cfba6c4639ecdd50af9374f49a06238a
+    info_version: 19.5.0
+  - file: TS28111_FaultNrm.yaml
+    sha256: 0b2bee47c509db2e2c11b60556088dbeaa4881e125a095ab646cd1bcdff5f118
+    info_version: 19.3.0
+  - file: TS28310_EnergyInformationNrm.yaml
+    sha256: 34bd58290ab22b1001025fcbfe27fdd71a383f8fb0456778577353a3aad26d6d
+    info_version: 19.0.0
+  - file: TS28312_IntentExpectations.yaml
+    sha256: f35007a9c231e2306d66bc6f238add95caf3c68371f65e0c627c4847c2631f8e
+    info_version: 19.3.0
+  - file: TS28312_IntentNrm.yaml
+    sha256: 7049e45b9fc0cdfc767219cb92958d63ccc21bb5087ed1208e6f82dbdbed180f
+    info_version: 19.5.0
+  - file: TS28317_RanScNrm.yaml
+    sha256: 2474e5e5d1673cf1debfc9b8a08e9ce201dfe9a747e8ef00dc3791b0968d8a08
+    info_version: 19.0.0
+  - file: TS28318_DsoNrm.yaml
+    sha256: efb00a693da355f560b8295a953e65703d509373fd2b2f8a25d0b13914e49178
+    info_version: 19.1.0
+  - file: TS28319_MsacNrm.yaml
+    sha256: aaf174e9490ef40ca87a38cb75a7dbe4545fee0ed11f35455a64d350eb3c08d5
+    info_version: 19.0.0
+  - file: TS28532_FileDataReportingMnS.yaml
+    sha256: 275cab9d35a6dcfa2d90edd8aa3c1f5da08d27e94befe29b1950e44d1eb7886c
+    info_version: 19.1.0
+  - file: TS28532_HeartbeatNtf.yaml
+    sha256: aa049f6b1598fafd6a195e84568181c0247b755661e42cec49f5cd59fab07103
+    info_version: 18.1.0
+  - file: TS28532_PerfMnS.yaml
+    sha256: 85e3bcbb028d1fa6752af60295b81c741ecf6841ebfab43381bc60b5304d740c
+    info_version: 18.1.0
+  - file: TS28532_ProvMnS.yaml
+    sha256: 47e6c7d5e0036d6607eaad7901db0421534189fbf71c2e682e377d0a7cac5d15
+    info_version: 19.2.0
+  - file: TS28536_CoslaNrm.yaml
+    sha256: 1bb6671901fe9e8b6d7a911ae17cf921f0c692a99253ddfe963df81dee6b9b6f
+    info_version: 19.1.0
+  - file: TS28538_EdgeNrm.yaml
+    sha256: 06c4f3a4748bf004492da32d3159ee8992829ddca5a4116f9db1371bb91fe0d7
+    info_version: 19.4.0
+  - file: TS28541_5GcNrm.yaml
+    sha256: abb55ff008b2db6321ce479654c3937dabd160bc3c9fc103701bf99ae9e51f46
+    info_version: 19.7.0
+  - file: TS28541_NrNrm.yaml
+    sha256: 0df2a930964463f1349ff15a1ca51a0abaf67e8bc1d7cc2a68920f93823f5275
+    info_version: 19.6.0
+  - file: TS28541_SliceNrm.yaml
+    sha256: e78db431e48370cf7de350df5c7b2a85cc8d468dc9a1412fb049802203b740e4
+    info_version: 19.4.0
+  - file: TS28561_NdtNrm.yaml
+    sha256: ede01f410c712b04772c1f0c2c11cecbfb05fb5f1942f579788b8a7521a6912a
+    info_version: 19.3.0
+  - file: TS28567_CclNrm.yaml
+    sha256: dcb255efd27926c0d784497878c2d1a752d8ca8a35607bae3d03297a8b75b762
+    info_version: 19.2.0
+  - file: TS28623_ComDefs.yaml
+    sha256: bf6ac3ba2b4877dcb3ce3768c92ae4725a5af87b21deb7a89d4b6d3aad20ee1e
+    info_version: 19.6.0
+  - file: TS28623_ExternalDataMgmtNrm.yaml
+    sha256: 1fb36291bda3b5f59daefcb11b23c0fcc19dcaa5020f633bc177213d38af986e
+    info_version: 19.5.0
+  - file: TS28623_FeatureNrm.yaml
+    sha256: a1092b2deefe7c6b5988a56c7f11ccad1649de2466fcaff5ff9834cf4ef0cfc4
+    info_version: 19.6.0
+  - file: TS28623_FileManagementNrm.yaml
+    sha256: 2b00682e7db1ddf7723872e82b6938c718ee2a53131ceb8e20db6bc6e6353fbd
+    info_version: 19.3.0
+  - file: TS28623_GenericNrm.yaml
+    sha256: dba554b340b776d6e506ee0c6852b67ed98f5dcd8283774274404dc79d7790e4
+    info_version: 19.7.0
+  - file: TS28623_ManagementDataCollectionNrm.yaml
+    sha256: 032b1d0815d3887ac97de1ffd0dd040e27dce297a911fa295accae74ccbcc31a
+    info_version: 19.5.0
+  - file: TS28623_MnSRegistryNrm.yaml
+    sha256: 8cfd054db93bbc99150d26a26eee8934cea758f8155be146cb6a0eb25826a770
+    info_version: 19.6.0
+  - file: TS28623_PmControlNrm.yaml
+    sha256: 78cae46f0880ae854cc14743c8547ceb11584903b4c4e02b2cef558e787005de
+    info_version: 19.2.0
+  - file: TS28623_QoEMeasurementCollectionNrm.yaml
+    sha256: c5395426cd1c01f5edcaab6efd4e0d1175aa12ac8f2efe8b0a8a6850f70f3c89
+    info_version: 19.3.0
+  - file: TS28623_SubscriptionControlNrm.yaml
+    sha256: ccba92c4f4ab18c7896fe3df6a3657e103b515c8fa970354456d1f66eb04bd0b
+    info_version: 19.4.0
+  - file: TS28623_ThresholdMonitorNrm.yaml
+    sha256: 19c7fc5bbfd60166def0b4dfe0ab37eb35cc51b3883ceb527bddd509929cceed
+    info_version: 19.2.0
+  - file: TS28623_TraceControlNrm.yaml
+    sha256: d5db66a92c638253ed31ebd95d17167eedcdebda1621580fd0d0604dbec97ecf
+    info_version: 19.6.0
+  - file: TS29122_AsSessionWithQoS.yaml
+    sha256: 1d77c7b146ab45375ed8551587d1135b80558e78fef04481caccb239c9e778ae
+    info_version: 1.4.2
+  - file: TS29122_CommonData.yaml
+    sha256: 8d498f0d969031013b5e7c704529e9e3d7e042f5548c3fddd559c456cab5729b
+    info_version: 1.4.1
+  - file: TS29122_CpProvisioning.yaml
+    sha256: d4ba7ae58183dda78d3e342dcc35d30fcf428d48c92bc266b8bc67078dc24780
+    info_version: 1.4.0
+  - file: TS29122_MonitoringEvent.yaml
+    sha256: fb1e2f8faee1330c91c8e46393d80a49c49d76c13be3f6d4bb1bdd5511b50fb6
+    info_version: 1.4.1
+  - file: TS29122_PfdManagement.yaml
+    sha256: 1aba918756f33d5a1b7fee611e2f4d46d07b8b34d6766a49a38ad4b0c92a1dc7
+    info_version: 1.4.0
+  - file: TS29122_ResourceManagementOfBdt.yaml
+    sha256: 805ae389a0200791deca62ebd30f0cc65d721321f312b2e6da0cde318c5db65b
+    info_version: 1.4.0
+  - file: TS29502_Nsmf_PDUSession.yaml
+    sha256: 08fe50579c6289ffe9f9941d3133eb1049435ad06879c343dedd5c18ffece763
+    info_version: 1.4.1
+  - file: TS29503_Nudm_EE.yaml
+    sha256: e5eb5cad51c780702d669d94ebf3aaa175daa94eebf65ec00d3133d8a0591833
+    info_version: 1.4.1
+  - file: TS29503_Nudm_NIDDAU.yaml
+    sha256: 9c36e22bb45f77f4dd80e8ff4fd0f2b5c12354e91bb6a408c1da83851e70f9f6
+    info_version: 1.3.0
+  - file: TS29503_Nudm_PP.yaml
+    sha256: 1781fdcb2cfe4a837dc78bb792a7b707eecdf48a158316e5c9cfd0a8718db3d0
+    info_version: 1.4.1
+  - file: TS29503_Nudm_SDM.yaml
+    sha256: d1894b275d137e8be822326397bf4d7b89b0c9dfb92772fc70cdbc855673328d
+    info_version: 2.4.2
+  - file: TS29503_Nudm_SSAU.yaml
+    sha256: 9ec655d69ac36103b222eadd147c1bfb2c392cbd7489bc850422dfebca479524
+    info_version: 1.2.0
+  - file: TS29503_Nudm_UEAU.yaml
+    sha256: 683a9c72886dc2030f8849dc40e63a7e1c76adbfa1a5626dcdfbc80382f4a385
+    info_version: 1.4.0
+  - file: TS29503_Nudm_UECM.yaml
+    sha256: 51ed04ff32cd931d45cf96e6c3341a8c0d88ae3c60a62476da9e87b39f0e5fa7
+    info_version: 1.4.2
+  - file: TS29505_Subscription_Data.yaml
+    sha256: 212e2ea8d293793164c2c3f4b543185e36666a86fdf5c8902d8f11d291a4ed45
+    info_version: '-'
+  - file: TS29507_Npcf_AMPolicyControl.yaml
+    sha256: 7e223b8447f958e7ff1109629ef24d11aae79957f6df5a10eb8297f8a1202982
+    info_version: 1.4.2
+  - file: TS29508_Nsmf_EventExposure.yaml
+    sha256: f6ce0dd50ea66ae99df2ba79061121af1d5cbdc5f9f67f91d2ce291a45bab90c
+    info_version: 1.4.2
+  - file: TS29509_Nausf_SoRProtection.yaml
+    sha256: 406400c9a97a6db687be78e103191a796cdfe2c433c9eb3093f7a3e8e26ad8ea
+    info_version: 1.4.0
+  - file: TS29509_Nausf_UPUProtection.yaml
+    sha256: 6c2060be540b75aa208ed19fbfadccc5d630999ed26acc3c4100f7bd8b6cc1c8
+    info_version: 1.4.1
+  - file: TS29510_Nnrf_AccessToken.yaml
+    sha256: 266aa5216c7d0492465df581aba62257f189dbcd7d017e44c084f6cd55004622
+    info_version: 1.4.0
+  - file: TS29510_Nnrf_NFDiscovery.yaml
+    sha256: 81a0f8badfd85e2a286734fd3e4553ff3c3e023df679adf6019c5e48a2affc21
+    info_version: 1.4.2
+  - file: TS29510_Nnrf_NFManagement.yaml
+    sha256: 43aa7800d42bb32563eed569616a535263179b400db9e84970d36882833c2fbc
+    info_version: 1.4.2
+  - file: TS29512_Npcf_SMPolicyControl.yaml
+    sha256: 69e0086d88de0d1574d0a59704c936dfa9316f5af603bafc56c0cc3381b6550b
+    info_version: 1.4.2
+  - file: TS29514_Npcf_PolicyAuthorization.yaml
+    sha256: 7996a39f2febe7a1e842f9fcbf5678195c4e64d4a77db5b86b04d49ab0a83033
+    info_version: 1.4.2
+  - file: TS29515_Ngmlc_Location.yaml
+    sha256: c11715693f3171acaa669f2f7978277b3de9b27028bf578b5e7861958d43f116
+    info_version: 1.3.0
+  - file: TS29517_Naf_EventExposure.yaml
+    sha256: 34b0219baca369b7427008e9b95e36de367c84b39c65e6c3407b00e50f025bab
+    info_version: 1.4.2
+  - file: TS29518_Namf_Communication.yaml
+    sha256: 1c22c77afb0444c1e5e6aa80a06b633a4f1944b3ddad363f08b66d44a3bc9472
+    info_version: 1.4.2
+  - file: TS29518_Namf_EventExposure.yaml
+    sha256: 701e901184cdcb7de87dcdcced20ab8cdf2bd9851bff4a378d0fe5b330c4998a
+    info_version: 1.4.2
+  - file: TS29518_Namf_Location.yaml
+    sha256: 122462750ce95ec3e2c3c44be1db11d83fe95052ca1d72ee3e0168a111a9ba2c
+    info_version: 1.4.1
+  - file: TS29519_Application_Data.yaml
+    sha256: 242f1b13c594c3493cbf1ac8f1c4f609d6f11ff082c28511912e7be28232939c
+    info_version: '-'
+  - file: TS29519_Policy_Data.yaml
+    sha256: 679ac84bf8775171f93cb15e16c856d08ee6b0ce305701f9ff706c3dff48d26d
+    info_version: '-'
+  - file: TS29522_5GLANParameterProvision.yaml
+    sha256: 6e8826b618794b127fbc06056805087d96072abd21abb73edcf016e6809e65f1
+    info_version: 1.3.0
+  - file: TS29522_AKMA.yaml
+    sha256: 4ef4375ef7a9b5b9099baf36343781e6499a26e90cc13b857762b58036b83f61
+    info_version: 1.1.0
+  - file: TS29522_AMInfluence.yaml
+    sha256: 14a9024c7c38424ea50a394494cdd746cacf1404f208ddaf655f22404a7f0d36
+    info_version: 1.2.1
+  - file: TS29522_AMPolicyAuthorization.yaml
+    sha256: 528e60d531e579fec1f1b9f9a6ae7c33096d93cb1733b1ad2840b1f61b8a5ce8
+    info_version: 1.2.1
+  - file: TS29522_EASDeployment.yaml
+    sha256: 3d0a2e1997ab0939cedd9d8eb3e0af2710bec10c7d2b9a07899a60394d40c935
+    info_version: 1.2.1
+  - file: TS29522_GroupParametersProvisioning.yaml
+    sha256: 7a1107d59f551c59b2dea400f4d57d0e36ac40a46781da9e39fa8370108a8929
+    info_version: 1.1.0
+  - file: TS29522_IPTVConfiguration.yaml
+    sha256: 577e1aafa76d035e3c28d51178b2591cf8293beb182babbe9745a5c705e6e8a4
+    info_version: 1.2.0
+  - file: TS29522_ServiceParameter.yaml
+    sha256: f85f6431af7039dc32fac3259181d933f063629606060e3a1e6fcb60cfe07b91
+    info_version: 1.3.1
+  - file: TS29522_TrafficInfluence.yaml
+    sha256: 2a363df5d89024705f7f02b54be209746f9a1bb4976d3afe1152cf192349b05d
+    info_version: 1.4.1
+  - file: TS29522_UEId.yaml
+    sha256: dad899f319c8447dad275a0a35008e4527c5738420ee0ab2b172731bfb237f7c
+    info_version: 1.2.0
+  - file: TS29523_Npcf_EventExposure.yaml
+    sha256: bc8429ee13049e2d63e3b00c8f9fe6153c0bed7b73f272e05f07e9c27747e426
+    info_version: 1.4.2
+  - file: TS29525_Npcf_UEPolicyControl.yaml
+    sha256: 593c565d5bc9a9f24bb65f6f4355efaf07073e52687119a9fc875e1a2bcb3499
+    info_version: 1.4.2
+  - file: TS29531_Nnssf_NSSAIAvailability.yaml
+    sha256: f3d90cab57497f532001b2bd0a34fdf93e9d2e9ae8c84e411f64467289403634
+    info_version: 1.4.1
+  - file: TS29531_Nnssf_NSSelection.yaml
+    sha256: 8df23f16e919abda873849b365e80bb2f3577552ac8af71ee7dcbe5c1442fc81
+    info_version: 2.4.0
+  - file: TS29534_Npcf_AMPolicyAuthorization.yaml
+    sha256: f7cc22ccedcf0950da3074755f017396f32c2d2394fb7c11864d95b5a2d6df29
+    info_version: 1.2.0
+  - file: TS29536_Nnsacf_SliceEventExposure.yaml
+    sha256: 9615bf422fa4f7e0c151fa8c004b709cbb59b963fcec1e8837855185038a1a69
+    info_version: 1.2.0
+  - file: TS29543_Npcf_PDTQPolicyControl.yaml
+    sha256: d2371fdfd8eaae170eb4c7acc85d229e75eadb5a931a815b4ee89cf14c20874a
+    info_version: 1.1.0
+  - file: TS29544_Nspaf_SecuredPacket.yaml
+    sha256: 96799379268917c20d247696cf9d99fe040331530db74e7bc90154f6fd684651
+    info_version: 1.3.0
+  - file: TS29551_Nnef_PFDmanagement.yaml
+    sha256: d03d5663b787eb0a655d9cf13bb421d429fe6e8590ab55644713801966c79727
+    info_version: 1.4.0
+  - file: TS29554_Npcf_BDTPolicyControl.yaml
+    sha256: f6e05d09d82615519aed1f900422aa7d75bae59306e126e2c5150d1260c801e1
+    info_version: 1.4.0
+  - file: TS29555_N5g-ddnmf_Discovery.yaml
+    sha256: 874b0358a3c5cb36662d7573cb560d91830ffbe0402a1c5ee80b624c77a9d6d1
+    info_version: 1.2.0
+  - file: TS29562_Nhss_imsUEAU.yaml
+    sha256: 972552036244ee911916506d680a6f70006d6a05d5debede99368c4763d79666
+    info_version: 1.3.0
+  - file: TS29564_Nupf_EventExposure.yaml
+    sha256: 5827e608d56beed775ab7f001dda6ea2765628adb7fa3adc521d05b29efd0d99
+    info_version: 1.2.2
+  - file: TS29565_Ntsctsf_QoSandTSCAssistance.yaml
+    sha256: 35203f83420955894e907975fea052e79b711630d1bf42b7b58446aae1d5500b
+    info_version: 1.2.2
+  - file: TS29571_CommonData.yaml
+    sha256: 4a8cc0cd7ed81ae44b5e51c9385cee2cd6ff19c156fe1d7431017456bd33a1ff
+    info_version: 1.6.2
+  - file: TS29572_Nlmf_DataExposure.yaml
+    sha256: 2d008f777f6476e6407964da0f402ec4e7128dfd9f4252738dd02eaa74025309
+    info_version: 1.0.0
+  - file: TS29572_Nlmf_Location.yaml
+    sha256: 2d8bb0f0db3dcd15d8548649214a99f5b86e8936b6817ee42db48ed681e3c8ad
+    info_version: 1.4.1
+  - file: TS29573_N32_Handshake.yaml
+    sha256: 3b9f1523e5334fdc0e3cb89ebc5160fa799da2e7464d2195dc33f811358b7a59
+    info_version: 1.4.1
+  - file: TS29574_Ndccf_DataManagement.yaml
+    sha256: bedbfe7bd861a07a8902c7498e0510b4dafe22f7cf036d56d707cf1f0254332b
+    info_version: 1.2.2
+  - file: TS29575_Nadrf_DataManagement.yaml
+    sha256: 5cd57aa081a73bdf701d6d25b9354db3b53b34170c10406bd970099a38f83bf6
+    info_version: 1.2.2
+  - file: TS29576_Nmfaf_3caDataManagement.yaml
+    sha256: 2bdae5f90b105072145eaef2b7485d41a117af624eaa98efedc4107f84e4440f
+    info_version: 1.2.2
+  - file: TS29591_Nnef_EASDeployment.yaml
+    sha256: 240fcf276a6afd2e008e5ba5fe6ffff2ebdb207e6abe5d772d0a7b308c7b7da0
+    info_version: 1.2.1
+  - file: TS29591_Nnef_EventExposure.yaml
+    sha256: f8b5d0f05f76f08daad981387732740569cf714e641e3e50343d4b5bbabb0a7e
+    info_version: 1.4.2
+  - file: TS29594_Nchf_SpendingLimitControl.yaml
+    sha256: 44fd7912d819096ef0524cbe9fff9e4f37565029798ce1bc55bb09466d30c046
+    info_version: 1.4.0
+  - file: TS32291_Nchf_ConvergedCharging.yaml
+    sha256: d2e0e3fb36c8680e3307f1cddb9d56632e6e22e4bb1144c0c887227323fc258b
+    info_version: 3.3.1
+  validation: PASS
+- release: '20'
+  forge_repository: https://forge.3gpp.org/rep/all/5G_APIs.git
+  branch: REL-20
+  commit: 269699e909240228d68878132c03ba87d5e871c7
+  retrieval_source: https://forge.3gpp.org/rep/all/5G_APIs
+  retrieved_at: '2026-09-05T10:06:18Z'
+  api_files:
+  - file: TS29520_Nnwdaf_AnalyticsInfo.yaml
+    sha256: 70facab9ef7c7c640c2e9dbcfe9592d8a731ed87b6974979b7064389ccb9f3a3
+    info_version: 1.5.0-alpha.1
+  - file: TS29520_Nnwdaf_DataManagement.yaml
+    sha256: 63e0296e4770ac4286c998c11ba95ebb0e2fac9bcdddc6306b5b1ca6d02a760a
+    info_version: 1.3.0-alpha.1
+  - file: TS29520_Nnwdaf_EventsSubscription.yaml
+    sha256: 62214af841d15edc8e267896562b1b659228e2836c2e986ef12466e7770ef7ee
+    info_version: 1.5.0-alpha.1
+  - file: TS29520_Nnwdaf_MLModelMonitor.yaml
+    sha256: ee7b7ad9d3fcfaa21d75242cb180c41af19dcd14f2498d08d0d62d2d36005a0b
+    info_version: 1.2.0-alpha.1
+  - file: TS29520_Nnwdaf_MLModelProvision.yaml
+    sha256: 01c133db48cfa726fdfa6caa6945417e7c172014948a96414c0d8e882ec75a84
+    info_version: 1.3.0-alpha.1
+  - file: TS29520_Nnwdaf_MLModelTraining.yaml
+    sha256: 660cf225b092dd578a85336aee8fcd9402eb78118c6f595066c9b018df7a0927
+    info_version: 1.2.0-alpha.1
+  - file: TS29520_Nnwdaf_RoamingAnalytics.yaml
+    sha256: 1297493fa59eb7af21012e6556d117d6b4b5bb064fb5be5078a7bea544a1a24a
+    info_version: 1.2.0-alpha.1
+  - file: TS29520_Nnwdaf_RoamingData.yaml
+    sha256: 655399806d74858a018dc767520a0bf17d9a0377a1b29a1b684160f1efcdd6ed
+    info_version: 1.2.0-alpha.1
+  - file: TS29520_Nnwdaf_VFLInference.yaml
+    sha256: 86e67e5eb4b3f69edef9cacff0f6a2f4c0f279f184843431278336dd983defde
+    info_version: 1.1.0-alpha.1
+  - file: TS29520_Nnwdaf_VFLTraining.yaml
+    sha256: cc8dd5a1006512507175f6bd5bb5080d6fcfe4715db9026899ec5697e518bfd5
+    info_version: 1.1.0-alpha.1
+  dependency_files:
+  - file: TS26510_CommonData.yaml
+    sha256: 03491172b3979a4be32f99369c84e961b812d45bfdbe777b3d33cde37689f426
+    info_version: 1.1.1
+  - file: TS26512_CommonData.yaml
+    sha256: 40077fa2de6a112bc532126ac1e0871acb661dc88a9204d0d1e71a7f4ff081e0
+    info_version: 3.2.0
+  - file: TS26512_EventExposure.yaml
+    sha256: 3c59ce433295225d2dba9e8efd64a114ebb4d171b4e191bbeba57e5871a529fa
+    info_version: 1.2.0
+  - file: TS26512_M5_DynamicPolicies.yaml
+    sha256: 12da0e4f7c64b95966c86ed67561085c0cad61215d9bac06d67f82f474c88a68
+    info_version: 3.1.0
+  - file: TS26512_M5_NetworkAssistance.yaml
+    sha256: b7ad70df2a09160083cb3f308888d8141f6e61e3025e2e581ec360e2ec334d2d
+    info_version: 3.1.0
+  - file: TS26512_R2_DataReporting.yaml
+    sha256: cd19f4d3445a4dd2fbc223bce82aeadc2aa1f804c4957b0b61495b6c311bface
+    info_version: 1.1.0
+  - file: TS26512_R4_DataReporting.yaml
+    sha256: 085ccfc8974d2a13c01040ad624bb7a4d1698c268fc0e567684b4504264c34e6
+    info_version: 2.1.0
+  - file: TS26532_CommonData.yaml
+    sha256: 92c9c891238ed1a0dc3354753d7405669a231cecc4c3abc72305d208f249da50
+    info_version: 2.1.1
+  - file: TS26532_Ndcaf_DataReporting.yaml
+    sha256: f147807b71579c8af9770787905442351977b2ba1d01bb596ed105567057dac5
+    info_version: 2.2.0
+  - file: TS26532_Ndcaf_DataReportingProvisioning.yaml
+    sha256: 634499cda3463bdd4b47c2e6f65d11dc6fe6df0c21f2aea8b0d6e187c2187848
+    info_version: 2.0.1
+  - file: TS28104_MdaNrm.yaml
+    sha256: e0c5b308e27b402e68cef1f12403512f49b7a5a08f223aa2245df3d7f9588d91
+    info_version: 20.0.0
+  - file: TS28104_MdaReport.yaml
+    sha256: cdc40fc26c305a2b450977b7e3d7ff7a4b7b56f195816ffc0ae68a10fe2ad34a
+    info_version: 20.0.0
+  - file: TS28105_AiMlNrm.yaml
+    sha256: 714b2d0bb1ac6c3dbcdaa9e362938c59cfba6c4639ecdd50af9374f49a06238a
+    info_version: 19.5.0
+  - file: TS28111_FaultNrm.yaml
+    sha256: 0b2bee47c509db2e2c11b60556088dbeaa4881e125a095ab646cd1bcdff5f118
+    info_version: 19.3.0
+  - file: TS28310_EnergyInformationNrm.yaml
+    sha256: 34bd58290ab22b1001025fcbfe27fdd71a383f8fb0456778577353a3aad26d6d
+    info_version: 19.0.0
+  - file: TS28312_5GCNetworkExpectation.yaml
+    sha256: dcd1052df679edb586edfc81fdc324059b2ef91f64ffffb362e7c1dead3d2c70
+    info_version: 20.0.0
+  - file: TS28312_EdgeServiceSupportExpectation.yaml
+    sha256: e6719d9354652db8e84332a3ade3c3df9602b3cad7983a11fc538f9d0f06ea0c
+    info_version: 20.0.0
+  - file: TS28312_IntentNrm.yaml
+    sha256: dcba8a8d1b2a60fa4b34589a352cf33842db9690268a2a7794c97741e6af794f
+    info_version: 20.0.0
+  - file: TS28312_NetworkMaintenanceExpectation.yaml
+    sha256: 5bed7d8585e46ac88d58e6aea49c23ec689647a8b7606db6e8f38e04363fed94
+    info_version: 20.0.0
+  - file: TS28312_RadioNetworkExpectation.yaml
+    sha256: 6c760ed0be014b948eae2c73d1e10b1f4d96ce0c5777e4c9dae3978c6f9daf98
+    info_version: 20.0.0
+  - file: TS28312_RadioServiceExpectation.yaml
+    sha256: 8aef06b9ac4259d03c7371bd2730b42c8408fc05a62df758e2f72cd4be5427d2
+    info_version: 20.0.0
+  - file: TS28317_RanScNrm.yaml
+    sha256: 2474e5e5d1673cf1debfc9b8a08e9ce201dfe9a747e8ef00dc3791b0968d8a08
+    info_version: 19.0.0
+  - file: TS28318_DsoNrm.yaml
+    sha256: efb00a693da355f560b8295a953e65703d509373fd2b2f8a25d0b13914e49178
+    info_version: 19.1.0
+  - file: TS28319_MsacNrm.yaml
+    sha256: aaf174e9490ef40ca87a38cb75a7dbe4545fee0ed11f35455a64d350eb3c08d5
+    info_version: 19.0.0
+  - file: TS28532_FileDataReportingMnS.yaml
+    sha256: 275cab9d35a6dcfa2d90edd8aa3c1f5da08d27e94befe29b1950e44d1eb7886c
+    info_version: 19.1.0
+  - file: TS28532_HeartbeatNtf.yaml
+    sha256: aa049f6b1598fafd6a195e84568181c0247b755661e42cec49f5cd59fab07103
+    info_version: 18.1.0
+  - file: TS28532_PerfMnS.yaml
+    sha256: 85e3bcbb028d1fa6752af60295b81c741ecf6841ebfab43381bc60b5304d740c
+    info_version: 18.1.0
+  - file: TS28532_ProvMnS.yaml
+    sha256: 47e6c7d5e0036d6607eaad7901db0421534189fbf71c2e682e377d0a7cac5d15
+    info_version: 19.2.0
+  - file: TS28536_CoslaNrm.yaml
+    sha256: 1bb6671901fe9e8b6d7a911ae17cf921f0c692a99253ddfe963df81dee6b9b6f
+    info_version: 19.1.0
+  - file: TS28538_EdgeNrm.yaml
+    sha256: 06c4f3a4748bf004492da32d3159ee8992829ddca5a4116f9db1371bb91fe0d7
+    info_version: 19.4.0
+  - file: TS28541_5GcNrm.yaml
+    sha256: d59515952893a11c22bb9c826a536e8b5ae44c09feca74ebc3c6127759719df1
+    info_version: 20.3.0
+  - file: TS28541_NrNrm.yaml
+    sha256: 0df2a930964463f1349ff15a1ca51a0abaf67e8bc1d7cc2a68920f93823f5275
+    info_version: 19.6.0
+  - file: TS28541_SliceNrm.yaml
+    sha256: e78db431e48370cf7de350df5c7b2a85cc8d468dc9a1412fb049802203b740e4
+    info_version: 19.4.0
+  - file: TS28561_NdtNrm.yaml
+    sha256: 0b79552764865d16ed29a4150697bfc0801fb6b2f3c6e6d64b0be9b90d2b7c6c
+    info_version: 20.0.0
+  - file: TS28567_CclNrm.yaml
+    sha256: 10ad41fe0aec1092045848fa6d34b13e5de28cddef925e1e7579f8f12df35394
+    info_version: 20.0.0
+  - file: TS28623_ComDefs.yaml
+    sha256: bf6ac3ba2b4877dcb3ce3768c92ae4725a5af87b21deb7a89d4b6d3aad20ee1e
+    info_version: 19.6.0
+  - file: TS28623_ExternalDataMgmtNrm.yaml
+    sha256: 1fb36291bda3b5f59daefcb11b23c0fcc19dcaa5020f633bc177213d38af986e
+    info_version: 19.5.0
+  - file: TS28623_FeatureNrm.yaml
+    sha256: a1092b2deefe7c6b5988a56c7f11ccad1649de2466fcaff5ff9834cf4ef0cfc4
+    info_version: 19.6.0
+  - file: TS28623_FileManagementNrm.yaml
+    sha256: 2b00682e7db1ddf7723872e82b6938c718ee2a53131ceb8e20db6bc6e6353fbd
+    info_version: 19.3.0
+  - file: TS28623_GenericNrm.yaml
+    sha256: dba554b340b776d6e506ee0c6852b67ed98f5dcd8283774274404dc79d7790e4
+    info_version: 19.7.0
+  - file: TS28623_ManagementDataCollectionNrm.yaml
+    sha256: 032b1d0815d3887ac97de1ffd0dd040e27dce297a911fa295accae74ccbcc31a
+    info_version: 19.5.0
+  - file: TS28623_MnSRegistryNrm.yaml
+    sha256: 8cfd054db93bbc99150d26a26eee8934cea758f8155be146cb6a0eb25826a770
+    info_version: 19.6.0
+  - file: TS28623_PmControlNrm.yaml
+    sha256: 78cae46f0880ae854cc14743c8547ceb11584903b4c4e02b2cef558e787005de
+    info_version: 19.2.0
+  - file: TS28623_QoEMeasurementCollectionNrm.yaml
+    sha256: c5395426cd1c01f5edcaab6efd4e0d1175aa12ac8f2efe8b0a8a6850f70f3c89
+    info_version: 19.3.0
+  - file: TS28623_SubscriptionControlNrm.yaml
+    sha256: ccba92c4f4ab18c7896fe3df6a3657e103b515c8fa970354456d1f66eb04bd0b
+    info_version: 19.4.0
+  - file: TS28623_ThresholdMonitorNrm.yaml
+    sha256: 19c7fc5bbfd60166def0b4dfe0ab37eb35cc51b3883ceb527bddd509929cceed
+    info_version: 19.2.0
+  - file: TS28623_TraceControlNrm.yaml
+    sha256: d5db66a92c638253ed31ebd95d17167eedcdebda1621580fd0d0604dbec97ecf
+    info_version: 19.6.0
+  - file: TS29122_AsSessionWithQoS.yaml
+    sha256: 38dae69ae86f0c5394625e53ffa5334a867ca73eaaeb66dc3b129dca2b91aa29
+    info_version: 1.5.0-alpha.1
+  - file: TS29122_CommonData.yaml
+    sha256: 8d498f0d969031013b5e7c704529e9e3d7e042f5548c3fddd559c456cab5729b
+    info_version: 1.4.1
+  - file: TS29122_CpProvisioning.yaml
+    sha256: d4ba7ae58183dda78d3e342dcc35d30fcf428d48c92bc266b8bc67078dc24780
+    info_version: 1.4.0
+  - file: TS29122_MonitoringEvent.yaml
+    sha256: e6a7cc884d2dde8b9eea60a3d4f5137dcfe8d320ad9d744f093bbd974301a723
+    info_version: 1.5.0-alpha.1
+  - file: TS29122_PfdManagement.yaml
+    sha256: 1aba918756f33d5a1b7fee611e2f4d46d07b8b34d6766a49a38ad4b0c92a1dc7
+    info_version: 1.4.0
+  - file: TS29122_ResourceManagementOfBdt.yaml
+    sha256: 805ae389a0200791deca62ebd30f0cc65d721321f312b2e6da0cde318c5db65b
+    info_version: 1.4.0
+  - file: TS29502_Nsmf_PDUSession.yaml
+    sha256: 07c6725984c0be8c1d3b9fab32c4a0c984cbc4b86f9b7e69fbc2fd5f41a479b6
+    info_version: 1.5.0-alpha.1
+  - file: TS29503_Nudm_EE.yaml
+    sha256: 7467461f7f58807ee8318aaa008606126976bd2f6ba1ae37872b4089f5011822
+    info_version: 1.5.0-alpha.1
+  - file: TS29503_Nudm_NIDDAU.yaml
+    sha256: f984885a3c4def8e02bc4af249b617be39c707c6caeca02cfc467d57ff67e17f
+    info_version: 1.4.0-alpha.1
+  - file: TS29503_Nudm_PP.yaml
+    sha256: 0bc2bf97cfd93b78754f9b922bbccc92ee5c6969e06fe36b8192e4adbd800762
+    info_version: 1.5.0-alpha.1
+  - file: TS29503_Nudm_SDM.yaml
+    sha256: 51bfe9776a0cc462f67a39e94359c588de1579628a05172771f46d1b1f9f6c3e
+    info_version: 2.5.0-alpha.1
+  - file: TS29503_Nudm_SSAU.yaml
+    sha256: 71cfc1db0bab5382b067f63d8ad7acceb01227d59c5a111a48f29f2e29e0f65e
+    info_version: 1.3.0-alpha.1
+  - file: TS29503_Nudm_UEAU.yaml
+    sha256: 34b278c6add8072fcb27c949479a0f6380d5d8be8263af66563afe7fced6e825
+    info_version: 1.5.0-alpha.1
+  - file: TS29503_Nudm_UECM.yaml
+    sha256: f6827815cfbd2e35f532af4be97853e7b08bef11af13b09b828955f7839ee7c3
+    info_version: 1.5.0-alpha.1
+  - file: TS29505_Subscription_Data.yaml
+    sha256: 31a386d5149e9493320f8746340ab139d7bf5e69e9527976bb4ecea5ca92790b
+    info_version: '-'
+  - file: TS29507_Npcf_AMPolicyControl.yaml
+    sha256: 7e96bb50505bacd0e07e62ed85005b3f80a6374448c723d8314b280dd01ecb5b
+    info_version: 1.5.0-alpha.1
+  - file: TS29508_Nsmf_EventExposure.yaml
+    sha256: fd0a2599a5377d4675746b5de9c70b2782df6f121198e2dd3332d1feaf1aa8a7
+    info_version: 1.5.0-alpha.1
+  - file: TS29509_Nausf_SoRProtection.yaml
+    sha256: 51983566fdcd683b37ec2b85faf18d0f4743200c766edf7dc25fde67f5cca523
+    info_version: 1.5.0-alpha.1
+  - file: TS29509_Nausf_UPUProtection.yaml
+    sha256: f15469b8bb6fa1af694ce917d8cc8d3699a56c704bbed38485bfc44b32d5755b
+    info_version: 1.5.0-alpha.1
+  - file: TS29510_Nnrf_AccessToken.yaml
+    sha256: 0cc32d73cc4f791c42cf28bb8d46c7a0270eed038341061057e6a64b042b8d0b
+    info_version: 1.5.0-alpha.1
+  - file: TS29510_Nnrf_NFDiscovery.yaml
+    sha256: 6e2c1b2a932e1a57de77b5b75237bf39070e81db6063d5b7c2178d75a25160f2
+    info_version: 1.5.0-alpha.1
+  - file: TS29510_Nnrf_NFManagement.yaml
+    sha256: f1241eef77fe0ca2d0efbabff7fb886ff2b14b6cafebc051228664fe375bc676
+    info_version: 1.5.0-alpha.1
+  - file: TS29512_Npcf_SMPolicyControl.yaml
+    sha256: 5b114400dba965ff31a08e471a0ab1a0211bbe10ef196979434ff4c8745db8d1
+    info_version: 1.5.0-alpha.1
+  - file: TS29514_Npcf_PolicyAuthorization.yaml
+    sha256: 9dea7a9ee858bb7cd09583c779cf0d69b80a0c3710a3ec72a7b5c39d9e1e92ca
+    info_version: 1.5.0-alpha.1
+  - file: TS29515_Ngmlc_Location.yaml
+    sha256: a138dafeb032a16f9c0eb3cc71c00a179ce23142311f538a220010311eeada29
+    info_version: 1.4.0-alpha.1
+  - file: TS29517_Naf_EventExposure.yaml
+    sha256: 4b37222d28dcaaf7de4164803a2038c3e9f3d6294b8019695e6c01b3bc92d85c
+    info_version: 1.5.0-alpha.1
+  - file: TS29518_Namf_Communication.yaml
+    sha256: 63dabe6ad86c8a4940278d5d0ddd311c9c253db7b43ddaf34a5232b8cca7a598
+    info_version: 1.5.0-alpha.1
+  - file: TS29518_Namf_EventExposure.yaml
+    sha256: 6602e72ffebbd0a9e0b03f70ab2557c2a5b7ebb3a2e7d708eab30fbd64841bb8
+    info_version: 1.5.0-alpha.1
+  - file: TS29518_Namf_Location.yaml
+    sha256: 3b1451ac1bbfcb62049fae6ad926be11f1515e220ea6b7f65ee00e2bec579f68
+    info_version: 1.5.0-alpha.1
+  - file: TS29519_Application_Data.yaml
+    sha256: 9eb4ef3ca040913f25e851080c8b791effe84edce4b775b63568969a1100053c
+    info_version: '-'
+  - file: TS29519_Policy_Data.yaml
+    sha256: a9cf914a91a3abf6ee6c0c23d1f47ee3027eaa6ab8ddb1b2ceb3b00e6002757c
+    info_version: '-'
+  - file: TS29522_5GLANParameterProvision.yaml
+    sha256: 6e8826b618794b127fbc06056805087d96072abd21abb73edcf016e6809e65f1
+    info_version: 1.3.0
+  - file: TS29522_AKMA.yaml
+    sha256: bbb6f98da1073b69e3381515066573ee012e34d191c115f150ea99b1f925b87e
+    info_version: 1.2.0-alpha.1
+  - file: TS29522_AMInfluence.yaml
+    sha256: 14a9024c7c38424ea50a394494cdd746cacf1404f208ddaf655f22404a7f0d36
+    info_version: 1.2.1
+  - file: TS29522_AMPolicyAuthorization.yaml
+    sha256: 1b6e8a8672c10815c7346395b573c7520e2386b0dea00fe9e5a0c877072338a4
+    info_version: 1.3.0-alpha.1
+  - file: TS29522_EASDeployment.yaml
+    sha256: 54701854581cc0774cffb4651304cd0dcb8209ce95ff1fd2b3e6800a5a0e50bd
+    info_version: 1.3.0-alpha.1
+  - file: TS29522_GroupParametersProvisioning.yaml
+    sha256: 7a1107d59f551c59b2dea400f4d57d0e36ac40a46781da9e39fa8370108a8929
+    info_version: 1.1.0
+  - file: TS29522_IPTVConfiguration.yaml
+    sha256: 577e1aafa76d035e3c28d51178b2591cf8293beb182babbe9745a5c705e6e8a4
+    info_version: 1.2.0
+  - file: TS29522_ServiceParameter.yaml
+    sha256: f85f6431af7039dc32fac3259181d933f063629606060e3a1e6fcb60cfe07b91
+    info_version: 1.3.1
+  - file: TS29522_TrafficInfluence.yaml
+    sha256: 2a363df5d89024705f7f02b54be209746f9a1bb4976d3afe1152cf192349b05d
+    info_version: 1.4.1
+  - file: TS29522_UEId.yaml
+    sha256: dad899f319c8447dad275a0a35008e4527c5738420ee0ab2b172731bfb237f7c
+    info_version: 1.2.0
+  - file: TS29523_Npcf_EventExposure.yaml
+    sha256: 5482b4edac45ea93ee193d6ebdccd1f8f7d00abc66537552245e017766a88ee3
+    info_version: 1.5.0-alpha.1
+  - file: TS29525_Npcf_UEPolicyControl.yaml
+    sha256: 0d6d21abf91290950303e63b243e570d6bc6ea919cd998264215e9e643b44f11
+    info_version: 1.5.0-alpha.1
+  - file: TS29531_Nnssf_NSSAIAvailability.yaml
+    sha256: c017d349b48adf15c3fa1d4df1d195d822eed64121c4b2b946a83221e1e73336
+    info_version: 1.5.0-alpha.1
+  - file: TS29531_Nnssf_NSSelection.yaml
+    sha256: 40a467604a304ea49f1488ddc15b3393c945ef9967a020f44847a2c226189baa
+    info_version: 2.5.0-alpha.1
+  - file: TS29534_Npcf_AMPolicyAuthorization.yaml
+    sha256: 6fe4f842abd15d4baee0124f867eaefdd4625f71ebe5ddd6fbfe06e5b9439e54
+    info_version: 1.3.0-alpha.1
+  - file: TS29536_Nnsacf_SliceEventExposure.yaml
+    sha256: 5a5b5e616b8e5d3125ea0db8058813fefe0d38e29b27cc97698bb57d73abd4cd
+    info_version: 1.3.0-alpha.1
+  - file: TS29543_Npcf_PDTQPolicyControl.yaml
+    sha256: cb261c171c29a6d7eaec174152f0d5a3a7d9df7b965e68adc6d6974342fff475
+    info_version: 1.2.0-alpha.1
+  - file: TS29544_Nspaf_SecuredPacket.yaml
+    sha256: d3c6180a285a9842b09cb803868e0090462f84270e97e2e33fd4e593e910391f
+    info_version: 1.4.0-alpha.1
+  - file: TS29551_Nnef_PFDmanagement.yaml
+    sha256: 39b3659efa8743648b2dcd220c859e6a0cc0e185d9627fd0b8fd0aad4154d505
+    info_version: 1.5.0-alpha.1
+  - file: TS29554_Npcf_BDTPolicyControl.yaml
+    sha256: a695a7ff3e02e3aed01236d7bd061443f22aa32f0b4d1e226657ebd81ea0277f
+    info_version: 1.5.0-alpha.1
+  - file: TS29555_N5g-ddnmf_Discovery.yaml
+    sha256: c2772c0c728bf43e88e8a5d8f64219f651ed302bbfee3cbebedbfb20a3b47070
+    info_version: 1.3.0-alpha.1
+  - file: TS29562_Nhss_imsUEAU.yaml
+    sha256: 8cd4fd2fd2eb9210945efd68a1433cf9a2f9274bd63c20862b01f68d41db2a61
+    info_version: 1.4.0-alpha.1
+  - file: TS29564_Nupf_EventExposure.yaml
+    sha256: 6d02723ec4768198c087413e396f2d71f14d12e57f8189a6fe511d132c261593
+    info_version: 1.3.0-alpha.1
+  - file: TS29565_Ntsctsf_QoSandTSCAssistance.yaml
+    sha256: ac1fdbcc9977749006cc86899951cb6b726e86a161a97861b78ed2a1ba8c9eaa
+    info_version: 1.3.0-alpha.1
+  - file: TS29566_Neif_EventExposure.yaml
+    sha256: e26965680d6387d99974cbeafea4c774066858637cc8223190206f5e9de22629
+    info_version: 1.1.0-alpha.1
+  - file: TS29571_CommonData.yaml
+    sha256: 42b723be54a580e8bce5e07cb418224b17c559bcf0d8ded83b9083997e7c5302
+    info_version: 1.7.0-alpha.1
+  - file: TS29572_Nlmf_DataExposure.yaml
+    sha256: 4edf042d1d192fc373f08353cc6659315c4a880d886738f4f35b059d322dd6a7
+    info_version: 1.1.0-alpha.1
+  - file: TS29572_Nlmf_Location.yaml
+    sha256: d892298447e3195bcf920734a3568881225ad5373509ed3203100fdaf0ad3954
+    info_version: 1.5.0-alpha.1
+  - file: TS29573_N32_Handshake.yaml
+    sha256: 3b9f1523e5334fdc0e3cb89ebc5160fa799da2e7464d2195dc33f811358b7a59
+    info_version: 1.4.1
+  - file: TS29574_Ndccf_DataManagement.yaml
+    sha256: 94bf1176b80b92939dd76707469a1ecf0ecc146638b069a459aa0f6c7237897d
+    info_version: 1.3.0-alpha.1
+  - file: TS29575_Nadrf_DataManagement.yaml
+    sha256: bcd3f1a5eb51e5e32dfe87e2c5aed9f0f9b4c99d204c0c1004ccab5bf8b2558f
+    info_version: 1.3.0-alpha.1
+  - file: TS29576_Nmfaf_3caDataManagement.yaml
+    sha256: 3833ac33be743c03c9feca21f1c2ffb18ed064dcaf954e2d28960afd447b5ff6
+    info_version: 1.3.0-alpha.1
+  - file: TS29591_Nnef_EASDeployment.yaml
+    sha256: f5407ff422fe0b3773636c2d9f6b8b0f8c845e7cce45b324b869988179f67900
+    info_version: 1.3.0-alpha.1
+  - file: TS29591_Nnef_EventExposure.yaml
+    sha256: c7dcfbeb636a0f9fc23f39588f4637ff8ac093215f4cdecb8976ca9954d1c338
+    info_version: 1.5.0-alpha.1
+  - file: TS29594_Nchf_SpendingLimitControl.yaml
+    sha256: 44fd7912d819096ef0524cbe9fff9e4f37565029798ce1bc55bb09466d30c046
+    info_version: 1.4.0
+  - file: TS32291_Nchf_ConvergedCharging.yaml
+    sha256: ec519b3f6c503138d00013468aa1c807cb390f098b221932498f79a60ada0421
+    info_version: 3.4.0-alpha.1
+  validation: PASS
+toolchain:
+  python: 3.8.10
+  pyyaml: 5.3.1
+  pandoc: pandoc 2.5
+  pandoc_local_packages:
+  - file: pandoc-data_2.5-3build2_all.deb
+    sha256: 2a678f9066d5438c860b185662051aff5d6bca94c0604e91890b3472205dee9b
+  - file: pandoc_2.5-3build2_amd64.deb
+    sha256: 243aecc72349fc6c61d46cda122d064201e05cf66d7d248722beb3b620eb2129
+  libreoffice: LibreOffice 6.4.7.2 40(Build:2)
+  git: git version 2.25.1
+  curl: curl 7.68.0 (x86_64-pc-linux-gnu) libcurl/7.68.0 OpenSSL/1.1.1f zlib/1.2.11 brotli/1.0.7 libidn2/2.2.0 libpsl/0.21.0 (+libidn2/2.2.0) libssh/0.9.3/openssl/zlib nghttp2/1.40.0 librtmp/2.3
+validation:
+  status: PASS
+  validated_at: '2026-09-05T10:12:52Z'
+  summary: references/validation/README.md
