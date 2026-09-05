@@ -1,0 +1,4 @@
+local-specs/
+__pycache__/
+*.py[cod]
+.venv/
