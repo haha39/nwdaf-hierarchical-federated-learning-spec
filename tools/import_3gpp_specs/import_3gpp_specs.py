@@ -62,6 +62,13 @@ def sha256_bytes(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def enforce_existing_pin(entry, field, actual, identity):
+    if field in entry and entry[field] is not None and entry[field] != actual:
+        raise ImportFailure(
+            "{} {} mismatch: expected {}, got {}".format(identity, field, entry[field], actual)
+        )
+
+
 def load_yaml(path, default=None):
     path = Path(path)
     if not path.exists():
@@ -554,11 +561,24 @@ def toc_clause_identities(sections):
 def convert_spec(spec_entry, state, smoke=False):
     release = str(spec_entry["release"])
     spec = spec_entry["spec"]
+    identity = "{} Release {} V{}".format(spec, release, spec_entry["version"])
     archive = source_dir(release) / spec_entry["archive_filename"]
     download(spec_entry["official_source_url"], archive)
     archive_sha = sha256_file(archive)
+    enforce_existing_pin(spec_entry, "archive_sha256", archive_sha, identity)
+    pinned_document = spec_entry.get("source_document")
+    if pinned_document and spec_entry.get("source_document_sha256"):
+        existing_document = archive.parent / pinned_document
+        if existing_document.exists():
+            enforce_existing_pin(
+                spec_entry,
+                "source_document_sha256",
+                sha256_file(existing_document),
+                identity,
+            )
     source_document = discover_source_document(archive, Path(spec_entry["archive_filename"]).stem)
     document_sha = sha256_file(source_document)
+    enforce_existing_pin(spec_entry, "source_document_sha256", document_sha, identity)
     destination = release_root(release) / spec
     if destination.exists():
         shutil.rmtree(str(destination))
@@ -1072,6 +1092,9 @@ def update_public_outputs(manifest, state):
         local = state["specifications"].get(spec_key(entry))
         result = state.get("validation", {}).get("specifications", {}).get(spec_key(entry))
         if local:
+            identity = "{} Release {} V{}".format(entry["spec"], entry["release"], entry["version"])
+            enforce_existing_pin(entry, "archive_sha256", local["source_archive_sha256"], identity)
+            enforce_existing_pin(entry, "source_document_sha256", local["source_document_sha256"], identity)
             public.update(
                 {
                     "archive_sha256": local["source_archive_sha256"],

@@ -2,7 +2,7 @@
 
 Status: **PASS**
 
-Validated at: `2026-09-05T10:12:52Z`
+Validated at: `2026-09-05T12:13:07Z`
 
 This report contains aggregate validation results only. Normative source text,
 converted Markdown, and OpenAPI bodies remain under the gitignored `local-specs/` tree.
