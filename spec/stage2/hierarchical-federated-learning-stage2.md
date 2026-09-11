@@ -6,8 +6,8 @@ Clauses 1–3 contain proposed text. Their numbering is local to this draft.
 References [B1]–[B7] identify existing specification evidence in the informative
 notes below. Hierarchical composition, topology instructions, topology reporting
 and recovery behavior are proposed additions, including where they reuse an
-existing service. The informative notes identify a deferred Stage 3 normative
-review item.
+existing service. The informative notes record the corresponding Stage 3
+review finding.
 
 ## 1. Hierarchical Federated Learning — Functional Description
 
@@ -158,21 +158,19 @@ The procedure is as follows:
 
 8. Reports are combined successively until the root NWDAF has the confirmed
    relationships and the outstanding or unsuccessful candidate outcomes. This
-   is the realized topology known at that point, rather than an assumption that
-   the original candidate instruction has been fulfilled. Different intermediate
-   NWDAFs may temporarily discover or prepare the same NWDAF as a candidate.
-   Duplicate parentage or an ancestor cycle must not be accepted into the
-   realized topology. Where independently selected relationships conflict, the
-   upstream decision process retains or accepts one relationship and adjusts
-   or removes the conflicting relationship before formation is considered
-   successfully resolved.
+   is the realized topology known at that point, based on confirmed relationships
+   rather than an assumption that the original candidate instruction has been
+   fulfilled. The accepted realized topology is a rooted tree in which each
+   NWDAF has at most one direct parent. A relationship that would duplicate an
+   NWDAF identity in the tree or create an ancestor cycle is not accepted.
 
 9. When the applicable formation requirements are satisfied, training is
    initiated using the existing Model Training lifecycle [B3, B5, B6]. Topology
-   preparation alone does not initiate training. If establishment is abandoned,
-   each reachable parent removes the direct subscriptions it no longer needs
-   using the unsubscribe lifecycle [B6]; unavailable-peer cleanup is not
-   represented as confirmed remote termination.
+   preparation alone does not initiate training. When a direct relationship
+   established during formation is no longer needed, the parent managing that
+   relationship uses the existing unsubscribe lifecycle [B6] to remove the
+   corresponding subscription. Failure to reach a peer is not represented as
+   confirmed remote termination.
 
 NOTE: The baseline permits preparation checks to be skipped under the conditions
 in TS 23.288 clause 6.2C.2.1 [B2]. Reusing such an eligibility determination does
@@ -240,16 +238,19 @@ NWDAF. Changed realized topology is reported successively to the root NWDAF.
 
 5. **Reparenting.** The replacement establishes new direct-child Model Training
    subscriptions with the affected children using clause 2. Each new
-   subscription provides notification target and correlation information for
-   the replacement, reusing the meanings in [B5, B6]. After required preparation,
-   hierarchical support and participation confirmation succeed, the new
-   relationship may become an accepted edge in the repaired realized topology.
-   The child's notifications for that new subscription are directed to the
-   replacement. Inability to complete Unsubscribe with the failed old parent
-   does not by itself block establishment of the new relationship. The common
-   ML Correlation ID does not make this a transfer of the old subscription or
-   authorize the new parent. Exact resource lifecycle, coexistence and cleanup
-   behavior remains subject to the Stage 3 follow-up below.
+   subscription is a new and independent resource and provides notification
+   target and correlation information for the replacement, reusing the meanings
+   in [B5, B6]. Each edge retains its own subscription resource and notification-
+   correlation lifecycle. After required preparation, hierarchical support and
+   participation confirmation succeed, the new relationship may become an
+   accepted edge in the repaired realized topology. The child's notifications
+   for that new subscription are directed to the replacement. Failure to
+   complete cleanup of, or Unsubscribe for, the old subscription associated
+   with the failed parent does not by itself block establishment of the new
+   relationship. The common ML Correlation ID does not transfer the old
+   subscription, identify ownership or authorize the replacement. Deterministic
+   cleanup of an unreachable stale old resource is outside the core recovery
+   procedure.
 
    If an affected child is itself an intermediate NWDAF and its own downstream
    relationships remain usable, changing that child's upstream relationship
@@ -366,15 +367,19 @@ the realized tree, recursive repair by an authorized surviving direct parent,
 acceptance of new relationships and minimum training continuation. These are
 project proposal semantics, not claims of existing 3GPP behavior.
 
-### Stage 3 follow-up
+### Stage 3 review finding
 
-Verify against TS 29.520 the resource lifecycle, coexistence and cleanup
-semantics when a replacement establishes a new Model Training subscription
-with an affected child but Unsubscribe cannot be completed with the failed old
-parent. In particular, determine how the new subscription and the old resource
-are handled without implying subscription transfer through the common ML
-Correlation ID. Exact Stage 3 behavior is unverified here; this deferred
-normative review item does not leave the proposed Stage 2 acceptance rule open.
+The completed review of TS 29.520 V18.14.0, V19.7.0 and V20.0.0, clauses
+4.6.2.2.2, 4.6.2.3.2, 4.6.2.4.2 and 5.5.6.2.2/5.5.6.2.8, found that creation
+and deletion are defined per subscription resource, the ML Correlation ID
+identifies the ML training procedure, and notification correlation correlates
+notifications with the corresponding subscription. Applying those resource semantics to this proposal, a
+replacement establishes a new and independent subscription resource. Failure
+to complete cleanup or Unsubscribe of the old failed-parent subscription does
+not by itself block that establishment, and the common ML Correlation ID does
+not transfer the old resource, identify ownership or authorize the replacement.
+The inspected baseline does not specify deterministic cleanup of an unreachable
+stale old resource.
 
 Stale-resource cleanup procedures, peer recovery races, exclusive ownership,
 fencing and stateful handoff are outside the current Stage 2 scope.
