@@ -2,32 +2,52 @@
 
 Status: Project proposal for review; not a 3GPP specification.
 
-Clauses 1–3 contain proposed text. Their numbering is local to this draft.
-References [B1]–[B7] identify existing specification evidence in the informative
-notes below. Hierarchical composition, topology instructions, topology reporting
-and recovery behavior are proposed additions, including where they reuse an
-existing service. The informative notes record the corresponding Stage 3
-review finding.
+The Definitions and abbreviations section and clauses 1–3 contain proposed text.
+Clause numbering is local to this draft.
+The applicable TS 23.288 snapshots and clause evidence are identified in the
+informative notes below. Hierarchical composition, topology instructions,
+topology reporting and recovery behavior are proposed additions that reuse
+existing services.
+
+## Definitions and abbreviations
+
+### Definitions
+
+For the purposes of this proposal, the applicable terms and definitions in
+TS 23.288 apply, together with the following:
+
+**Root NWDAF:** The NWDAF at the top of the hierarchy.
+
+**Intermediate NWDAF:** An NWDAF acting as an FL Client towards its parent and
+as an FL Server towards its direct children.
+
+**Realized topology:** The currently known topology based on confirmed
+parent-child relationships.
+
+**Participant-management policy:** Policy governing a receiving NWDAF's
+selection and management of its direct children.
+
+### Abbreviations
+
+For the purposes of this proposal, the applicable abbreviations in TS 23.288
+apply.
 
 ## 1. Hierarchical Federated Learning — Functional Description
 
 Hierarchical federated learning enables NWDAFs containing MTLF to compose the
-FL Server and FL Client functions described in TS 23.288 clause 5.3 into a
-hierarchy. It applies to the horizontal federated learning described in that
-clause. It introduces no new NWDAF NF type. Existing NWDAF logical functions,
-FL capabilities and discovery principles provide the baseline [B1, B2].
+existing FL Server and FL Client functions described in clause 5.3 of TS 23.288
+into a hierarchy. It applies to the horizontal federated learning described in
+that clause. FL capabilities and discovery principles follow clause 5.2 of
+TS 23.288.
 
 An NWDAF's role is relative to a parent-child relationship in the current
 hierarchical FL procedure. An intermediate NWDAF acts as an FL Client towards
 its parent and as an FL Server towards its direct children. It receives model
 training instructions from its parent, coordinates training and aggregation
 with its direct children, and reports the resulting model information to its
-parent. The NWDAF at the top of the hierarchy is referred to as the root NWDAF.
-An NWDAF with no direct children performs the assigned local training.
+parent. An NWDAF with no direct children performs the assigned local training.
 
-The composition may be repeated at successive intermediate NWDAFs. The number
-of levels is not fixed. The capability to support both FL roles does not, by
-itself, establish a parent-child relationship or confirm participation [B2].
+The composition may be repeated at successive intermediate NWDAFs at any depth.
 
 The accepted realized topology for one hierarchical FL procedure is a rooted
 tree. Each NWDAF has at most one direct parent in that topology.
@@ -42,15 +62,15 @@ relationships so that training can continue.
 
 This procedure applies before training when an NWDAF containing MTLF determines
 to use hierarchical federated learning. Existing FL initiation can follow local
-configuration or a model request from a consumer [B1]. The decision to form a
-hierarchy and the instructions below are additions to that baseline.
+configuration or a model request from a consumer as described in clause 5.3 of
+TS 23.288. The decision to form a hierarchy and the instructions below are
+additions to that baseline.
 
 The participating entities are the root NWDAF, intermediate NWDAFs, their
 candidate direct children and the NRF used for discovery. Every FL participant
 contains MTLF. Each parent establishes and manages its own direct-child Model
-Training subscriptions using the subscription and notification lifecycle [B5,
-B6]. The NRF supplies candidate capability and discovery information; this
-proposal assigns no topology storage or orchestration responsibility to the NRF.
+Training subscriptions using the service operations described in clause 7.10
+of TS 23.288. The NRF supplies candidate capability and discovery information.
 
 The procedure is as follows:
 
@@ -64,53 +84,51 @@ The procedure is as follows:
    Participant-management policy governs the receiving NWDAF's selection and
    management of its direct children, including a minimum available participant
    requirement and permitted responses to partial failure. Permission to add
-   candidates outside the supplied list must be explicit; its omission does not
-   grant that permission. Other unspecified decisions may follow local
-   configuration within the authority granted by the parent. Policy does not
-   automatically apply to all descendants.
+   candidates outside the supplied list must be explicit. Other unspecified
+   decisions may follow local configuration within the authority granted by
+   the parent. Policy does not automatically apply to all descendants.
 
 2. The NWDAF acting as parent, initially the root NWDAF, discovers or resolves
-   its candidate direct children using the principles in TS 23.288 clauses 5.2
-   and 6.2C.2.1 [B2]. For a candidate that is
-   expected to be an intermediate NWDAF, selection considers its ability to
-   perform both FL roles. Analytics ID, model interoperability, data availability,
-   time availability and applicable serving-area information retain their
-   existing meanings [B2, B5]. Candidate preference does not override eligibility.
+   its candidate direct children using the principles in clauses 5.2 and
+   6.2C.2.1 of TS 23.288. For a candidate expected to be an intermediate NWDAF,
+   selection considers its ability to perform both FL roles. Analytics ID,
+   model interoperability, data availability, time availability and applicable
+   serving-area information retain their meanings in clauses 5.2 and 6.2F.2 of
+   TS 23.288. Candidate preference applies among eligible candidates.
 
 3. The parent sends an Nnwdaf_MLModelTraining_Subscribe request to each candidate
    selected for preparation. The request carries the existing training
-   requirements and ML Preparation Flag [B2, B5], together with the proposed
-   topology instruction relevant to that recipient. Any nested instruction is
-   addressed to the corresponding descendant, rather than treating the entire
-   instruction as a command for every recipient.
+   requirements and ML Preparation Flag described in clauses 6.2C.2.1 and
+   6.2F.2 of TS 23.288, together with the proposed topology instruction relevant
+   to that recipient. Any nested instruction is addressed to the corresponding
+   descendant.
 
    The same ML Correlation ID is used throughout this hierarchical FL procedure.
    Each direct subscription retains its own subscription and notification
    correlation information. Hierarchy-wide use of the ML Correlation ID is a
    project-defined binding; the existing information element identifies an FL
-   procedure [B5, B6]. It does not replace peer identification or authorize a
-   relationship.
+   procedure as described in clause 6.2F.2 of TS 23.288.
 
 4. The candidate checks the training requirements and decides whether to
-   participate, following the preparation behavior in clause 6.2C.2.1 [B2]. It
-   also determines whether it can fulfil the hierarchical instruction. If it
-   cannot, it reports the unsuccessful outcome and reason to its parent. A
-   relationship is not counted as established until support for the required
+   participate, following the preparation behavior in clause 6.2C.2.1 of
+   TS 23.288. It also determines whether it can fulfil the hierarchical
+   instruction. If it cannot, it reports the unsuccessful outcome and reason to
+   its parent. A relationship is counted as established only after support for
+   the required
    hierarchical behavior and participation have been confirmed at that edge.
-   Confirmation on an upstream edge does not confirm downstream support.
+   Each edge requires its own confirmation.
 
-   Preparation does not start model training [B5]. Establishing downstream
-   relationships during hierarchical preparation is a proposed extension to
-   preparation, not a reinterpretation of the ML Preparation Flag as a training
-   trigger. A successful subscription response alone does not confirm completion
-   of a descendant subtree.
+   Preparation does not start model training, as described in clause 6.2F.1 of
+   TS 23.288. Establishing downstream relationships during hierarchical
+   preparation is a proposed extension. A successful subscription response
+   alone does not confirm completion of a descendant subtree.
 
 5. If the candidate is instructed to establish direct-child relationships, it
    acts as their parent and repeats steps 2–4 for those children. It may add
    candidates discovered through the NRF only within the granted selection
-   authority. Resolving the identity or checking the capability of a supplied
-   candidate does not require permission to add candidates. Each further
-   intermediate NWDAF repeats this procedure for its own children.
+   authority. Identity resolution and capability checks for supplied candidates
+   are independent of permission to add candidates. Each further intermediate
+   NWDAF repeats this procedure for its own children.
 
    Training and aggregation instructions, when supplied, describe the contract
    to be fulfilled by the participating NWDAFs; they are distinct from
@@ -122,8 +140,9 @@ The procedure is as follows:
    reporting a model update, for example local training epochs or, for an
    intermediate NWDAF, direct-child training rounds. If unspecified, that child
    may determine the cadence locally. This instruction is local to the addressed
-   child and is not automatically inherited by its descendants. It does not
-   replace the maximum response time [B3, B5].
+   child and is not automatically inherited by its descendants. The maximum
+   response time in clauses 6.2C.2.2 and 6.2F.2 of TS 23.288 applies alongside
+   the reporting cadence.
 
 6. Each parent records the outcome for the direct-child relationships it
    manages. Reports distinguish candidates awaiting confirmation, establishment
@@ -136,10 +155,9 @@ The procedure is as follows:
    extension of Nnwdaf_MLModelTraining_Notify. It identifies the reporting NWDAF,
    its direct-child outcomes and available descendant reports. Descendant status
    and status times are preserved when reports are combined. The reporting
-   intermediate NWDAF does not assign the status of its own upstream
-   relationship; that status is maintained by its parent. The report may include
-   locally resolved policy, training contract or reporting cadence where relevant
-   to the parent's acceptance decision.
+   intermediate NWDAF's upstream relationship status is maintained by its
+   parent. The report may include locally resolved policy, training contract or
+   reporting cadence where relevant to the parent's acceptance decision.
 
 7. Each parent evaluates the confirmed direct children and reported subtree
    against its participant-management policy. Only established subscriptions
@@ -150,107 +168,100 @@ The procedure is as follows:
    through the outcome report. The upstream parent may revise the instruction
    or terminate establishment of the affected part.
 
-   A candidate or relationship does not count as an established participant
-   until required hierarchical behavior and participation have been confirmed.
-   Candidate rejection or an unsupported instruction does not count as success.
    A parent may continue candidate establishment after its minimum availability
    requirement is met, and report subsequent changes.
 
 8. Reports are combined successively until the root NWDAF has the confirmed
    relationships and the outstanding or unsuccessful candidate outcomes. This
-   is the realized topology known at that point, based on confirmed relationships
-   rather than an assumption that the original candidate instruction has been
-   fulfilled. The accepted realized topology is a rooted tree in which each
-   NWDAF has at most one direct parent. A relationship that would duplicate an
-   NWDAF identity in the tree or create an ancestor cycle is not accepted.
+   is the realized topology known at that point, based on confirmed relationships.
+   The accepted realized topology is a rooted tree in which each NWDAF has at
+   most one direct parent. A relationship that would duplicate an NWDAF identity
+   in the tree or create an ancestor cycle is not accepted.
 
 9. When the applicable formation requirements are satisfied, training is
-   initiated using the existing Model Training lifecycle [B3, B5, B6]. Topology
-   preparation alone does not initiate training. When a direct relationship
-   established during formation is no longer needed, the parent managing that
-   relationship uses the existing unsubscribe lifecycle [B6] to remove the
-   corresponding subscription. Failure to reach a peer is not represented as
-   confirmed remote termination.
+   initiated using the Federated Learning procedure in clause 6.2C.2.2 of TS 23.288.
+   When a direct relationship established during formation is no longer needed,
+   the parent managing that relationship invokes
+   Nnwdaf_MLModelTraining_Unsubscribe as described in
+   clause 7.10.3 of TS 23.288 to remove the corresponding subscription. Failure
+   to reach a peer is not represented as confirmed remote termination.
 
-NOTE: The baseline permits preparation checks to be skipped under the conditions
-in TS 23.288 clause 6.2C.2.1 [B2]. Reusing such an eligibility determination does
-not by itself supply confirmation of newly established hierarchical
-relationships.
+NOTE: Existing FL preparation checks may be skipped under the conditions in
+clause 6.2C.2.1 of TS 23.288.
 
 ## 3. Intermediate NWDAF Failure Recovery
 
 This procedure applies when an intermediate NWDAF becomes unavailable during
 training, while the root NWDAF and the NWDAFs needed to coordinate repair remain
-available. It addresses replacement, reparenting and subsequent training. It
-does not require recovery of the failed intermediate NWDAF's runtime state.
+available. It addresses replacement, reparenting and subsequent training.
 
 The participants are the surviving parent of the unavailable intermediate NWDAF,
 a replacement intermediate NWDAF and the available children of the unavailable
 intermediate NWDAF, including any subtrees below those children. The parent uses
 its known realized topology from clause 2 to identify affected relationships. Last
-reported information is input to repair; it is not proof that descendants remain
-available.
+reported information is input to repair.
 
 The surviving direct parent may coordinate local repair within its granted
 participant-management and selection authority. It may select a replacement,
 establish the new parent-child relationship, trigger reparenting of the affected
-subtree and collect the repaired topology report. If it lacks sufficient
-authority, it reports the unmet repair requirement or failure outcome to its
-own parent for revised instructions or an upstream decision. This coordination
-applies recursively at any depth; recovery need not be initiated by the root
-NWDAF. Changed realized topology is reported successively to the root NWDAF.
+subtree and collect the repaired topology report. If the required repair cannot
+be completed within that authority, it reports the unmet repair requirement or
+failure outcome upstream. This coordination applies recursively at any depth.
+Changed realized topology is reported successively to the root NWDAF.
 
 1. **Failure detection.** The parent monitors its intermediate NWDAF client using
    existing inputs: NRF notifications of NF status changes, a client termination
    request, training status reports and absence of the expected training report
-   within the maximum response time [B3, B4]. A delay notification supplies
-   information for deciding whether to wait, extend the response time or stop
-   waiting; its receipt alone does not prove an intermediate failure [B3].
+   within the maximum response time, as described in clauses 6.2C.2.2 and
+   6.2C.2.3 of TS 23.288. A delay notification supplies information for deciding
+   whether to wait, extend the response time or stop waiting; its receipt alone
+   does not prove an intermediate failure.
    Operator policy and available observations determine whether replacement is
-   needed. No fixed retry count or new failure-detection service is introduced.
+   needed.
 
 2. The parent identifies the unavailable intermediate NWDAF and its affected
    parent-child relationships. It excludes that NWDAF from participant selection
    for the current repair while the NWDAF is considered unavailable, and records
-   the loss of the relationship. If the
-   parent is itself an intermediate NWDAF, it reports the affected subtree
-   upstream. Existing waiting, skipping and partial-aggregation choices may be
-   used for the interrupted local training round where the applicable policy
-   permits [B3, B4]. This does not establish that repair has completed.
+   the loss of the relationship. If the parent is itself an intermediate NWDAF,
+   it reports the affected subtree upstream. Existing waiting, skipping and
+   partial-aggregation choices may be used for the interrupted local training
+   round where the applicable policy permits, as described in clauses 6.2C.2.2
+   and 6.2C.2.3 of TS 23.288.
 
 3. **Replacement.** The parent selects a candidate replacement able to act as
    an FL Client towards it and as an FL Server towards the affected children.
    It considers known alternatives and, where permitted, NRF discovery, using
-   the selection and preparation principles in [B2, B4]. Selection accounts for
-   the affected training requirements and serving area. A different intermediate
-   NWDAF is not assumed to possess the failed NWDAF's subscriptions or training
-   state. If no suitable replacement is available, the parent reports the unsuccessful
-   repair and may wait, try another candidate, or proceed with a reduced
-   topology only as allowed by policy. A reduced topology is not reported as
-   successful restoration of the missing relationships.
+   the selection and preparation principles in clauses 6.2C.2.1 and 6.2C.2.3
+   of TS 23.288. Selection accounts for the affected training requirements and
+   serving area. If no suitable replacement is available, the parent reports
+   unsuccessful or incomplete repair, with subsequent action following
+   applicable policy. During repair, unaffected established relationships may
+   continue to be used subject to applicable training requirements and
+   participant-management policy.
 
-4. The parent prepares a new direct subscription to the replacement and supplies
+4. The parent sends an Nnwdaf_MLModelTraining_Subscribe request to the replacement
+   to establish a new direct subscription for preparation. The request supplies
    the affected subtree instruction, the same hierarchical FL procedure's ML
    Correlation ID, and the applicable training and participant-management
    instructions. Available children identified in the previous topology are
-   candidates to be reattached, not automatically confirmed participants of the
-   replacement. Unaffected subtrees are not included for reconstruction.
+   candidates for reattachment and undergo confirmation as specified in clause 2.
+   Unaffected subtrees are retained.
 
 5. **Reparenting.** The replacement establishes new direct-child Model Training
    subscriptions with the affected children using clause 2. Each new
    subscription is a new and independent resource and provides notification
-   target and correlation information for the replacement, reusing the meanings
-   in [B5, B6]. Each edge retains its own subscription resource and notification-
-   correlation lifecycle. After required preparation, hierarchical support and
-   participation confirmation succeed, the new relationship may become an
-   accepted edge in the repaired realized topology. The child's notifications
+   target and correlation information for the replacement, as described in
+   clauses 6.2F.2 and 7.10 of TS 23.288. Each edge retains its own subscription
+   resource and notification-correlation lifecycle. After required preparation,
+   hierarchical support and participation confirmation succeed, the new
+   relationship may become an accepted edge in the repaired realized topology.
+   The child's notifications
    for that new subscription are directed to the replacement. Failure to
    complete cleanup of, or Unsubscribe for, the old subscription associated
    with the failed parent does not by itself block establishment of the new
-   relationship. The common ML Correlation ID does not transfer the old
-   subscription, identify ownership or authorize the replacement. Deterministic
-   cleanup of an unreachable stale old resource is outside the core recovery
-   procedure.
+   relationship. The common ML Correlation ID continues to identify the
+   hierarchical FL procedure, while subscription resource and
+   notification-correlation state remain local to each edge.
 
    If an affected child is itself an intermediate NWDAF and its own downstream
    relationships remain usable, changing that child's upstream relationship
@@ -265,28 +276,24 @@ NWDAF. Changed realized topology is reported successively to the root NWDAF.
    topology upstream. Each successive parent conveys the changed topology until
    the root NWDAF obtains an updated hierarchy view. Incomplete repair may lead
    to further selection or adjustment within the granted authority. Confirmation
-   of repair covers the accepted relationships; it does not certify recovery of
-   lost model updates.
+   of repair covers the accepted relationships.
 
 7. **Training continuation.** Once the repaired relationships satisfy the
    applicable requirements, the surviving parent supplies a valid current model
    baseline and subsequent training instructions to the repaired subtree through
    the replacement. The replacement coordinates downstream training and reports
-   aggregated model information upstream using the existing training lifecycle
-   [B3, B5, B6]. The same ML
-   Correlation ID continues to identify the hierarchy, while subscription
-   identities and iteration progress remain local to each parent-child process.
-   Hierarchy-wide round synchronization is not implied by sharing that ID.
+   aggregated model information upstream using the training procedure in
+   clauses 6.2C.2.2 and 6.2F.1 of TS 23.288. The same ML Correlation ID continues
+   to identify the hierarchical FL procedure, while subscription identities and
+   iteration progress remain local to each parent-child process.
 
    The hierarchical FL job can thus make new training progress after repair
    without rebuilding unaffected relationships or restarting the whole hierarchy
    from initial formation. Work interrupted or not successfully delivered and
    accepted before failure is not assumed reusable. The procedure does not
-   require replay of partially completed work or seamless resume of the failed
-   intermediate NWDAF's runtime state, and does not claim exact recovery of its
-   failed local round or lossless state transfer. Retained-result reuse remains
-   an optional enhancement, not a prerequisite for repair or training
-   continuation.
+   require recovery of the failed intermediate NWDAF's runtime state or its
+   interrupted local round. Retained-result reuse remains an optional
+   enhancement, not a prerequisite for repair or training continuation.
 
 8. Ordinary updates of model information, local iteration and training deadlines
    use the established relationships. They do not repeat topology formation.
@@ -351,35 +358,25 @@ The design inputs below were read at `nwdaf-docs` revision
   node-local cadence, readiness and relationship-status ownership.
 - `docs/design/hierarchical-federated-learning/standard_field_extension_boundary.md`,
   clauses 3–7: design intent to reuse existing information and separate
-  hierarchical semantics. Its Stage 3 findings are not normative evidence for
+  hierarchical semantics. Its analysis is not normative evidence for
   this draft.
-- `docs/design/hierarchical-federated-learning/branch_replacement_scenario.md`,
-  clauses 3–5: observed-failure scenario, new subscriptions to a replacement,
-  subtree reporting and expressly deferred recovery details.
-
-The current scope makes intermediate recovery active and retained-result work
-optional, taking precedence over older design text that deferred recovery or
-centred the example on retained-result retrieval. No implementation-conformance
-claim or candidate-schema compatibility conclusion is made here.
 
 Project decisions reflected in clauses 1–3 define single-parent acceptance in
 the realized tree, recursive repair by an authorized surviving direct parent,
 acceptance of new relationships and minimum training continuation. These are
 project proposal semantics, not claims of existing 3GPP behavior.
 
-### Stage 3 review finding
+### ML Model Training subscription resource lifecycle
 
-The completed review of TS 29.520 V18.14.0, V19.7.0 and V20.0.0, clauses
-4.6.2.2.2, 4.6.2.3.2, 4.6.2.4.2 and 5.5.6.2.2/5.5.6.2.8, found that creation
-and deletion are defined per subscription resource, the ML Correlation ID
-identifies the ML training procedure, and notification correlation correlates
-notifications with the corresponding subscription. Applying those resource semantics to this proposal, a
-replacement establishes a new and independent subscription resource. Failure
-to complete cleanup or Unsubscribe of the old failed-parent subscription does
-not by itself block that establishment, and the common ML Correlation ID does
-not transfer the old resource, identify ownership or authorize the replacement.
+TS 29.520 V18.14.0, V19.7.0 and V20.0.0, clauses 4.6.2.2.2, 4.6.2.3.2,
+4.6.2.4.2 and 5.5.6.2.2/5.5.6.2.8, define creation and deletion per subscription
+resource. The ML Correlation ID identifies the ML training procedure, while
+notification correlation correlates notifications with the corresponding
+subscription. Applying those resource semantics to this proposal, a replacement
+establishes a new and independent subscription resource. Failure to complete
+cleanup or Unsubscribe of the old failed-parent subscription does not by itself
+block that establishment. The ML Correlation ID remains procedure-level
+correlation, while subscription resource identity and notification correlation
+remain associated with the individual subscription.
 The inspected baseline does not specify deterministic cleanup of an unreachable
 stale old resource.
-
-Stale-resource cleanup procedures, peer recovery races, exclusive ownership,
-fencing and stateful handoff are outside the current Stage 2 scope.
