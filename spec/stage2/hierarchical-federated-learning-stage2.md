@@ -183,8 +183,7 @@ The procedure is as follows:
    When a direct relationship established during formation is no longer needed,
    the parent managing that relationship invokes
    Nnwdaf_MLModelTraining_Unsubscribe as described in
-   clause 7.10.3 of TS 23.288 to remove the corresponding subscription. Failure
-   to reach a peer is not represented as confirmed remote termination.
+   clause 7.10.3 of TS 23.288 to remove the corresponding subscription.
 
 NOTE: Existing FL preparation checks may be skipped under the conditions in
 clause 6.2C.2.1 of TS 23.288.
@@ -213,20 +212,18 @@ Changed realized topology is reported successively to the root NWDAF.
    existing inputs: NRF notifications of NF status changes, a client termination
    request, training status reports and absence of the expected training report
    within the maximum response time, as described in clauses 6.2C.2.2 and
-   6.2C.2.3 of TS 23.288. A delay notification supplies information for deciding
-   whether to wait, extend the response time or stop waiting; its receipt alone
-   does not prove an intermediate failure.
-   Operator policy and available observations determine whether replacement is
-   needed.
+   6.2C.2.3 of TS 23.288. The parent determines whether replacement is needed
+   based on operator policy and available observations.
 
 2. The parent identifies the unavailable intermediate NWDAF and its affected
    parent-child relationships. It excludes that NWDAF from participant selection
    for the current repair while the NWDAF is considered unavailable, and records
    the loss of the relationship. If the parent is itself an intermediate NWDAF,
-   it reports the affected subtree upstream. Existing waiting, skipping and
-   partial-aggregation choices may be used for the interrupted local training
-   round where the applicable policy permits, as described in clauses 6.2C.2.2
-   and 6.2C.2.3 of TS 23.288.
+   it reports the affected subtree upstream. For its affected training round,
+   the parent may apply the existing waiting, skipping and partial-aggregation
+   choices described in clauses 6.2C.2.2 and 6.2C.2.3 of TS 23.288, subject to
+   applicable policy. Reports from unaffected direct children may still be used
+   for that round.
 
 3. **Replacement.** The parent selects a candidate replacement able to act as
    an FL Client towards it and as an FL Server towards the affected children.
