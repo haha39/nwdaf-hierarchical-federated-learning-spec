@@ -34,6 +34,15 @@ If the evidence is unavailable or conflicting, mark the claim unresolved.
 - **Spec Review:** compare proposed text, protocols, or schemas with the cited
   3GPP baseline and confirmed project semantics; report findings without
   silently changing design decisions.
+- **Paper Drafting:** write or revise manuscript content within the
+  Human-approved task and the authority and evidence hierarchy in
+  `PAPER_WORKFLOW.md`.
+- **Paper Review:** strictly read-only review of manuscript content against its
+  authoritative sources and evidence boundaries. It must not modify files or
+  repository state; only the Human or Paper Drafting may apply changes.
+
+All manuscript-specific drafting, review, Human-gate, and source rules are
+defined in `PAPER_WORKFLOW.md`.
 
 ## Repository hygiene
 
