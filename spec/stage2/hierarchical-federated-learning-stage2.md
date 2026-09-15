@@ -21,8 +21,12 @@ TS 23.288 apply, together with the following:
 **Intermediate NWDAF:** An NWDAF acting as an FL Client towards its parent and
 as an FL Server towards its direct children.
 
-**Realized topology:** The currently known topology based on confirmed
-parent-child relationships.
+**Realized topology:** The currently known topology formed by confirmed
+parent-child relationships during formation or operation.
+
+**Accepted realized topology:** The realized topology that the root NWDAF has
+accepted as satisfying the applicable formation requirements for the
+hierarchical FL procedure.
 
 **Participant-management policy:** Policy governing a receiving NWDAF's
 selection and management of its direct children.
@@ -159,27 +163,42 @@ The procedure is as follows:
    parent. The report may include locally resolved policy, training contract or
    reporting cadence where relevant to the parent's acceptance decision.
 
-7. Each parent evaluates the confirmed direct children and reported subtree
-   against its participant-management policy. Only established subscriptions
-   with satisfactory participation outcomes count towards availability. A
-   parent may accept a partial or unbalanced topology where its policy permits,
-   try further candidates within its authority, or report that the requirements
-   cannot be met. Decisions outside the granted authority are referred upstream
-   through the outcome report. The upstream parent may revise the instruction
-   or terminate establishment of the affected part.
+7. Each parent evaluates the confirmed direct children it manages against the
+   participant-management policy applicable to its local FL process. Only
+   established subscriptions with satisfactory participation outcomes count
+   towards availability. When the policy-defined minimum available participant
+   requirement is satisfied, the parent reports that its local formation
+   requirement has been met. It may continue candidate establishment after
+   that requirement is met and report subsequent changes.
 
-   A parent may continue candidate establishment after its minimum availability
-   requirement is met, and report subsequent changes.
+   If the requirement is not satisfied, the parent may try further candidates
+   within its granted authority or report the unmet requirement upstream. The
+   applicable requirement remains in effect until revised by an authorized
+   upstream instruction. Decisions outside the granted authority are referred
+   upstream through the outcome report. Hierarchy-wide acceptance is determined
+   by the root NWDAF as described in step 8.
 
 8. Reports are combined successively until the root NWDAF has the confirmed
-   relationships and the outstanding or unsuccessful candidate outcomes. This
-   is the realized topology known at that point, based on confirmed relationships.
+   relationships and the outstanding or unsuccessful candidate outcomes. The
+   confirmed relationships form the realized topology known at that point; the
+   outstanding or unsuccessful candidate outcomes are reported alongside that
+   topology.
+
+   The root NWDAF evaluates the realized topology and the reported candidate
+   outcomes against the applicable formation requirements. It may accept a
+   partial or unbalanced realized topology when those requirements are
+   satisfied, including when not every originally listed candidate is
+   established. If the requirements are not satisfied, the root NWDAF may
+   revise the applicable instruction or requirements and evaluate the updated
+   result, or terminate establishment of the affected part.
+
    The accepted realized topology is a rooted tree in which each NWDAF has at
    most one direct parent. A relationship that would duplicate an NWDAF identity
    in the tree or create an ancestor cycle is not accepted.
 
-9. When the applicable formation requirements are satisfied, training is
-   initiated using the Federated Learning procedure in clause 6.2C.2.2 of TS 23.288.
+9. When the root NWDAF has accepted the realized topology as satisfying the
+   applicable formation requirements, training is initiated using the Federated
+   Learning procedure in clause 6.2C.2.2 of TS 23.288.
    When a direct relationship established during formation is no longer needed,
    the parent managing that relationship invokes
    Nnwdaf_MLModelTraining_Unsubscribe as described in
