@@ -317,16 +317,20 @@ Changed realized topology is reported successively to the root NWDAF.
 
 ### Normative sources
 
-All baseline references below are to TS 23.288. The compared snapshots are:
+All baseline references below are to TS 23.288. This proposal targets Release
+18 as its standards baseline. Release 20 was the primary writing reference for
+the initial draft; the reused baseline capabilities were checked against
+Release 18, and Releases 19 and 20 were compared for later changes and
+potentially overlapping capabilities. The compared snapshots are:
 
 - R18: Release 18, V18.13.0, source archive `23288-id0.zip`. The
   specification-derived corpus and its manifest were inspected in the
   `nwdaf-docs` repository; its specification guide was used for navigation, not
   as a substitute for source text.
 - R19: Release 19, V19.7.0, source archive `23288-j70.zip`.
-- R20: Release 20, V20.1.0, source archive `23288-k10.zip`; primary drafting
-  baseline. R19 and R20 provenance is in
-  [the workspace manifest](../../references/manifest.yaml).
+- R20: Release 20, V20.1.0, source archive `23288-k10.zip`.
+
+R19 and R20 provenance is in [the workspace manifest](../../references/manifest.yaml).
 
 | Evidence | Clauses and titles | Release support and use |
 | --- | --- | --- |
