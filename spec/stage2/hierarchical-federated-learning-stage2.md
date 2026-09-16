@@ -227,12 +227,9 @@ be completed within that authority, it reports the unmet repair requirement or
 failure outcome upstream. This coordination applies recursively at any depth.
 Changed realized topology is reported successively to the root NWDAF.
 
-1. **Failure detection.** The parent monitors its intermediate NWDAF client using
-   existing inputs: NRF notifications of NF status changes, a client termination
-   request, training status reports and absence of the expected training report
-   within the maximum response time, as described in clauses 6.2C.2.2 and
-   6.2C.2.3 of TS 23.288. The parent determines whether replacement is needed
-   based on operator policy and available observations.
+1. **Failure detection.** The parent determines, based on available observations
+   and operator policy, whether its intermediate NWDAF client is unavailable and
+   replacement is needed.
 
 2. The parent identifies the unavailable intermediate NWDAF and its affected
    parent-child relationships. It excludes that NWDAF from participant selection
