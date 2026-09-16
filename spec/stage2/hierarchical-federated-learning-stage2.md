@@ -305,8 +305,7 @@ Changed realized topology is reported successively to the root NWDAF.
    from initial formation. Work interrupted or not successfully delivered and
    accepted before failure is not assumed reusable. The procedure does not
    require recovery of the failed intermediate NWDAF's runtime state or its
-   interrupted local round. Retained-result reuse remains an optional
-   enhancement, not a prerequisite for repair or training continuation.
+   interrupted local round.
 
 8. Ordinary updates of model information, local iteration and training deadlines
    use the established relationships. They do not repeat topology formation.
