@@ -59,8 +59,8 @@ tree. Each NWDAF has at most one direct parent in that topology.
 Dynamic topology formation, specified in clause 2, conveys selection
 instructions towards the participating NWDAFs and returns the topology actually
 established. Intermediate NWDAF failure recovery, specified in clause 3,
-replaces an unavailable intermediate NWDAF and repairs the affected
-relationships so that training can continue.
+repairs affected relationships after an intermediate NWDAF becomes unavailable
+so that training can continue.
 
 ## 2. Dynamic Topology Formation
 
@@ -214,22 +214,25 @@ training, while the root NWDAF and the NWDAFs needed to coordinate repair remain
 available. It addresses replacement, reparenting and subsequent training.
 
 The participants are the surviving parent of the unavailable intermediate NWDAF,
-a replacement intermediate NWDAF and the available children of the unavailable
-intermediate NWDAF, including any subtrees below those children. The parent uses
-its known realized topology from clause 2 to identify affected relationships. Last
-reported information is input to repair.
+the available affected direct children of that unavailable intermediate NWDAF,
+including any usable subtrees below those children, and, when selected, a
+replacement intermediate NWDAF. The parent uses its known realized topology from
+clause 2 to identify affected relationships. Last reported information is input
+to repair.
 
 The surviving direct parent may coordinate local repair within its granted
-participant-management and selection authority. It may select a replacement,
-establish the new parent-child relationship, trigger reparenting of the affected
-subtree and collect the repaired topology report. If the required repair cannot
-be completed within that authority, it reports the unmet repair requirement or
-failure outcome upstream. This coordination applies recursively at any depth.
-Changed realized topology is reported successively to the root NWDAF.
+participant-management and selection authority. It may select a repair path,
+establish changed parent-child relationships and collect the repaired topology
+report. If the required repair cannot be completed within that authority, it
+reports the unmet repair requirement or failure outcome upstream when it is not
+the root NWDAF. When the coordinating parent is the root NWDAF, it applies the
+applicable policy and requirements and determines the subsequent action. This
+coordination applies recursively at any depth. Changed realized topology is
+reported successively to the root NWDAF.
 
 1. **Failure detection.** The parent determines, based on available observations
    and operator policy, whether its intermediate NWDAF client is unavailable and
-   replacement is needed.
+   repair is needed.
 
 2. The parent identifies the unavailable intermediate NWDAF and its affected
    parent-child relationships. It excludes that NWDAF from participant selection
@@ -241,40 +244,57 @@ Changed realized topology is reported successively to the root NWDAF.
    applicable policy. Reports from unaffected direct children may still be used
    for that round.
 
-3. **Replacement.** The parent selects a candidate replacement able to act as
-   an FL Client towards it and as an FL Server towards the affected children.
-   It considers known alternatives and, where permitted, NRF discovery, using
-   the selection and preparation principles in clauses 6.2C.2.1 and 6.2C.2.3
-   of TS 23.288. Selection accounts for the affected training requirements and
-   serving area. If no suitable replacement is available, the parent reports
-   unsuccessful or incomplete repair, with subsequent action following
-   applicable policy. During repair, unaffected established relationships may
-   continue to be used subject to applicable training requirements and
-   participant-management policy.
+3. **Repair-path selection.** Subject to the applicable participant-management
+   policy and its granted participant-management and selection authority, the
+   parent may select a candidate replacement able to act as an FL Client towards
+   it and as an FL Server towards the affected children, or select eligible
+   available affected direct children of the unavailable intermediate NWDAF for
+   direct reparenting. It considers known alternatives and, where permitted, NRF
+   discovery, using the selection and preparation principles in clauses
+   6.2C.2.1 and 6.2C.2.3 of TS 23.288. Each candidate selected for a new direct
+   relationship undergoes the applicable capability, training-requirement,
+   preparation and participation checks specified in clause 2. Selection
+   accounts for the affected training requirements and serving area. If the
+   required repair cannot be completed within the granted authority, a non-root
+   parent reports unsuccessful or incomplete repair upstream. If the
+   coordinating parent is the root NWDAF, it applies the applicable policy and
+   requirements and determines the subsequent action. During repair, unaffected
+   established relationships may continue to be used subject to applicable
+   training requirements and participant-management policy.
 
-4. The parent sends an Nnwdaf_MLModelTraining_Subscribe request to the replacement
-   to establish a new direct subscription for preparation. The request supplies
-   the affected subtree instruction, the same hierarchical FL procedure's ML
+4. When a replacement intermediate NWDAF is selected, the parent sends an
+   Nnwdaf_MLModelTraining_Subscribe request to the replacement to establish a new
+   direct subscription for preparation. The request supplies the affected
+   subtree instruction, the same hierarchical FL procedure's ML Correlation ID,
+   and the applicable training and participant-management instructions.
+   Available children identified in the previous topology are candidates for
+   reattachment and undergo confirmation as specified in clause 2.
+
+   When direct reparenting is selected, the surviving parent sends an
+   Nnwdaf_MLModelTraining_Subscribe request to each selected available affected
+   direct child of the unavailable intermediate NWDAF to establish a new direct
+   subscription for preparation. The request supplies the topology instruction
+   relevant to that recipient, the same hierarchical FL procedure's ML
    Correlation ID, and the applicable training and participant-management
-   instructions. Available children identified in the previous topology are
-   candidates for reattachment and undergo confirmation as specified in clause 2.
-   Unaffected subtrees are retained.
+   instructions. Each selected child undergoes confirmation as specified in
+   clause 2. Unaffected subtrees are retained.
 
-5. **Reparenting.** The replacement establishes new direct-child Model Training
-   subscriptions with the affected children using clause 2. Each new
-   subscription is a new and independent resource and provides notification
-   target and correlation information for the replacement, as described in
-   clauses 6.2F.2 and 7.10 of TS 23.288. Each edge retains its own subscription
-   resource and notification-correlation lifecycle. After required preparation,
-   hierarchical support and participation confirmation succeed, the new
-   relationship may become an accepted edge in the repaired realized topology.
-   The child's notifications
-   for that new subscription are directed to the replacement. Failure to
-   complete cleanup of, or Unsubscribe for, the old subscription associated
-   with the failed parent does not by itself block establishment of the new
-   relationship. The common ML Correlation ID continues to identify the
-   hierarchical FL procedure, while subscription resource and
-   notification-correlation state remain local to each edge.
+5. **Reparenting.** For the replacement path, the replacement establishes new
+   direct-child Model Training subscriptions with the affected children selected
+   for reattachment, using clause 2. For the direct-reparenting path, the
+   surviving parent establishes the first-level changed edges through step 4.
+
+   Every new edge has a new and independent subscription resource and provides
+   notification target and correlation information for the new parent, as
+   described in clauses 6.2F.2 and 7.10 of TS 23.288. Subscription resource and
+   notification-correlation state remain local to each edge. After required
+   preparation, hierarchical support and participation confirmation succeed,
+   the new relationship may become an accepted edge in the repaired realized
+   topology. The child's notifications for that new subscription are directed
+   to the new parent. Failure to complete cleanup of, or Unsubscribe for, an old
+   subscription associated with the unavailable intermediate NWDAF does not by
+   itself block establishment of the new relationship. The common ML Correlation
+   ID continues to identify the hierarchical FL procedure.
 
    If an affected child is itself an intermediate NWDAF and its own downstream
    relationships remain usable, changing that child's upstream relationship
@@ -282,23 +302,32 @@ Changed realized topology is reported successively to the root NWDAF.
    reconfirmed through the child's topology report. Other unaffected
    relationships in the hierarchy are retained.
 
-6. Each affected child reports its participation outcome and available subtree
-   information. The replacement combines these outcomes and reports the
-   repaired topology to its parent as in clause 2. The parent checks the
-   confirmed relationships against its repair policy and conveys the changed
-   topology upstream. Each successive parent conveys the changed topology until
-   the root NWDAF obtains an updated hierarchy view. Incomplete repair may lead
-   to further selection or adjustment within the granted authority. Confirmation
-   of repair covers the accepted relationships.
+6. Each child selected for a changed relationship reports its participation
+   outcome and available subtree information. Each parent managing changed
+   relationships collects the relevant outcomes. An affected relationship that
+   is not successfully established is included in the repair outcome with its
+   reason, consistently with clause 2. Only confirmed relationships count
+   towards satisfaction of the applicable requirements.
+
+   Each parent checks the confirmed relationships against the applicable
+   participant-management policy and requirements. A non-root parent reports the
+   changed realized topology and repair outcome upstream as in clause 2. Each
+   successive non-root parent conveys that information until the root NWDAF
+   obtains an updated hierarchy view. The root NWDAF evaluates the changed
+   realized topology and reported outcomes against the applicable requirements
+   and determines hierarchy-wide acceptance as in clause 2. Incomplete repair
+   may lead to further selection or adjustment within the granted authority.
+   Confirmation of repair covers the accepted relationships.
 
 7. **Training continuation.** Once the repaired relationships satisfy the
    applicable requirements, the surviving parent supplies a valid current model
-   baseline and subsequent training instructions to the repaired subtree through
-   the replacement. The replacement coordinates downstream training and reports
-   aggregated model information upstream using the training procedure in
-   clauses 6.2C.2.2 and 6.2F.1 of TS 23.288. The same ML Correlation ID continues
-   to identify the hierarchical FL procedure, while subscription identities and
-   iteration progress remain local to each parent-child process.
+   baseline and subsequent training instructions over the repaired relationships.
+   Each node acting as a parent coordinates training with its direct children
+   using the training procedure in clauses 6.2C.2.2 and 6.2F.1 of TS 23.288. A
+   non-root parent reports aggregated model information upstream; the root NWDAF
+   performs the hierarchy-wide aggregation role. The same ML Correlation ID
+   continues to identify the hierarchical FL procedure, while subscription
+   identities and iteration progress remain local to each parent-child process.
 
    The hierarchical FL job can thus make new training progress after repair
    without rebuilding unaffected relationships or restarting the whole hierarchy
